@@ -11,3 +11,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.description {
+  font-size: 18px;
+}
+
+svg .tick > text {
+  font-size: 16px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #444;
+  stroke-width: 1.5px;
+}
+
+.axis--y path, .axis--y line {
+  fill: none;
+  stroke: #444;
+  stroke-width: 1.5px;
+}
+
+.slices {
+  stroke-width: 4px;
+  stroke: #fff;
+}
+
+.legend-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.spider-path{
+  stroke-opacity: 1;
+  stroke-width: 3;
+}
+
+.spider-circles {
+  stroke-width: 1;
+  stroke: #545454;
+  fill: #ddd;
+  opacity: 0.3
+}
+
+.spider-lines {
+  stroke-width: 2;
+  stroke: #545454;
+  fill: none;
+}
+
+.spider-dots {
+  stroke-width: 3;
+  fill: #fff;
+}
