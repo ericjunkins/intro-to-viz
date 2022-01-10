@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/intro-to-viz/static/css/main.c286cadb.css",
+    "main.js": "/intro-to-viz/static/js/main.f1bbb2a2.js",
+    "index.html": "/intro-to-viz/index.html",
+    "main.c286cadb.css.map": "/intro-to-viz/static/css/main.c286cadb.css.map",
+    "main.f1bbb2a2.js.map": "/intro-to-viz/static/js/main.f1bbb2a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c286cadb.css",
+    "static/js/main.f1bbb2a2.js"
+  ]
+}
