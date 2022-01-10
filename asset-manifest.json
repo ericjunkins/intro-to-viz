@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/intro-to-viz/static/css/main.c286cadb.css",
-    "main.js": "/intro-to-viz/static/js/main.f1bbb2a2.js",
+    "main.js": "/intro-to-viz/static/js/main.0f7d12d3.js",
+    "static/media/wordcloud.png": "/intro-to-viz/static/media/wordcloud.0bbfe65a5482f1ed7bad.png",
     "index.html": "/intro-to-viz/index.html",
     "main.c286cadb.css.map": "/intro-to-viz/static/css/main.c286cadb.css.map",
-    "main.f1bbb2a2.js.map": "/intro-to-viz/static/js/main.f1bbb2a2.js.map"
+    "main.0f7d12d3.js.map": "/intro-to-viz/static/js/main.0f7d12d3.js.map"
   },
   "entrypoints": [
     "static/css/main.c286cadb.css",
-    "static/js/main.f1bbb2a2.js"
+    "static/js/main.0f7d12d3.js"
   ]
 }
