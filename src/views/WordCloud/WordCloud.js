@@ -9,6 +9,8 @@ import {data, config} from "./WordCloudData";
 import { render } from "react-dom";
 // import WordCloud as Cloud from "react-d3-cloud";
 
+import cloud from "./wordcloud.png"
+
 export const WordCloud = () => {
     const basicWordcloudRef = useRef();
 
@@ -23,7 +25,7 @@ export const WordCloud = () => {
                         </Text>
                         <Box w="100%" h="1000px">
                             {/* <D3Container ref={basicWordcloudRef} data={data.basic} id="basic-wordcloud" viz={WordCloudChart} config={config.basic}/> */}
-                            <Image src="/wordcloud.png" alt="wordcloud" boxSize="100%"/>
+                            <Image src={cloud} alt="wordcloud" boxSize="100%"/>
                         </Box>
                     </Box>
                 </CardContainer>
