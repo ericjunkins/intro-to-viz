@@ -9,8 +9,13 @@ import * as d3 from "d3";
 import {config} from "./ScatterConfig";
 
 import {FaPlay, FaPause} from "react-icons/fa";
+import {world_data} from "./ScatterData";
+
+import {TextBox} from "./../../components/TextBox";
 
 let interval
+
+
 
 export const Scatter = () => {
     const scatterInteractiveRef = useRef();
@@ -29,20 +34,32 @@ export const Scatter = () => {
     const [scaling, setScaling] = useState(true)
 
     useEffect(() => {
-        d3.json("/ScatterData.json").then((d) => {
-            let tmp = d.map(year => {
-                return {countries: year["countries"].filter(country => {
-                    const dataExists = (country.income && country.life_exp)
-                    return dataExists
-                }).map(country => {
-                    country.income = +country.income
-                    country.life_exp = +country.life_exp
-                    return country
-                }), year: year.year}
-            })
-            setData(tmp);
-            setLoading(false);
-          });
+        let tmp = world_data.map(year => {
+            return {countries: year["countries"].filter(country => {
+                const dataExists = (country.income && country.life_exp)
+                return dataExists
+            }).map(country => {
+                country.income = +country.income
+                country.life_exp = +country.life_exp
+                return country
+            }), year: year.year}
+        })
+        setData(tmp);
+        setLoading(false);
+        // d3.json("/world_life_exp.json").then((d) => {
+        //     let tmp = d.map(year => {
+        //         return {countries: year["countries"].filter(country => {
+        //             const dataExists = (country.income && country.life_exp)
+        //             return dataExists
+        //         }).map(country => {
+        //             country.income = +country.income
+        //             country.life_exp = +country.life_exp
+        //             return country
+        //         }), year: year.year}
+        //     })
+        //     setData(tmp);
+        //     setLoading(false);
+        //   });
     }, [])
 
     useEffect(() => {
@@ -90,9 +107,11 @@ export const Scatter = () => {
             <Box w="75%" maxW="1500px">
                 <CardContainer title="Interactivity & Data Dimensions">
                     <Box>
-                        <Text className="description">
-                            Interactions with visualizations can give additional dimensions of data, as well as allow the user to explore the data presented in better ways. Not all visualizations warrant interactions, but once you start getting into either large number of displayed items, or want the ability for the user to ascertain very specific data points interactions can be a good idea
-                        </Text>
+                        <TextBox>
+                            <Text className="description">
+                                Interactions with visualizations can give additional dimensions of data, as well as allow the user to explore the data presented in better ways. Not all visualizations warrant interactions, but once you start getting into either large number of displayed items, or want the ability for the user to ascertain very specific data points interactions can be a good idea
+                            </Text>
+                        </TextBox>
                         {!loading ? 
                             <Box w="100%">
                                 <Center  w="100%" py="20px">
@@ -211,9 +230,11 @@ export const Scatter = () => {
                                 />
                             </Center>
                         }
-                        <Text className="description">
-                            The above visualization allows the user control of the 'time' axis in this, allowing play through historical data, in addition to filtering and hover tooltips for specific pieces of information. These can allow the user to discover relationships and trends in the data, which otherwise would have been very hard to see.
-                        </Text>
+                        <TextBox>
+                            <Text className="description">
+                                The above visualization allows the user control of the 'time' axis in this, allowing play through historical data, in addition to filtering and hover tooltips for specific pieces of information. These can allow the user to discover relationships and trends in the data, which otherwise would have been very hard to see.
+                            </Text>
+                        </TextBox>
                     </Box>
                 </CardContainer>
             </Box>

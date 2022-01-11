@@ -12,6 +12,7 @@ const NavButton = styled.button`
 const Navbar = ({size}) => {
 
     let navs = [
+        {name: "Intro", link: ""},
         {name: "Bar", link: ""},
         {name: "Donut", link: ""},
         {name: "Scatter/Bubbles", link: ""},
@@ -30,8 +31,14 @@ const Navbar = ({size}) => {
     const buttons = navs.map((d,i)=>
         <Center
             key={"nav-" + i}
-            borderRight={i != navs.length -1 ? "1.5px solid #333" : "none"}  
+            borderRight={i != navs.length -1 ? "1px solid #ababab" : "none"}  
+            // borderLeft={i != navs.length -1 ? "1.5px solid #333" : "none"}  
+            // border="1px solid #333"
+            // borderRadius="5px"
             px="20px"
+            // bg="#034d69"
+            
+            
         >
             <Button
                 onClick={() => navTo(d.link)}
@@ -43,7 +50,7 @@ const Navbar = ({size}) => {
                 _focusVisible={{border: "none", background: "none"}}
                 // 
             >
-                <Text fontSize="14px" fontWeight={500}> {d.name} </Text>
+                <Text fontSize="16px" fontWeight={500} color="#033345"> {d.name} </Text>
             </Button>
         </Center>
         
@@ -55,7 +62,7 @@ const Navbar = ({size}) => {
             py={2} 
             w="100%" 
             px={[12, 20]} 
-            boxShadow="3px 3px 3px #545454" 
+            // boxShadow="2px 2px 2px #ababab" 
             borderBottom="1px solid #333"
             position="fixed" 
             className="navbar" 

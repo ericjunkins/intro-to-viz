@@ -9,6 +9,7 @@ import {data, config} from "./WordCloudData";
 import { render } from "react-dom";
 // import WordCloud as Cloud from "react-d3-cloud";
 
+import {TextBox} from "./../../components/TextBox";
 import cloud from "./wordcloud.png"
 
 export const WordCloud = () => {
@@ -20,9 +21,11 @@ export const WordCloud = () => {
             <Box w="75%" maxW="1500px">
                 <CardContainer title="WordClouds">
                     <Box>
-                        <Text className="description">
-                            WordClouds are.... mostly trash to be honest. They are pretty trendy on social media, and I guess if that's going to be your audience sure go for it, but they do a horrible job of conveying data and are mostly just to attempt to be flashing with data.  
-                        </Text>
+                        <TextBox>
+                            <Text className="description">
+                                WordClouds are.... mostly trash to be honest. They are pretty trendy on social media, and I guess if that's going to be your audience sure go for it, but they do a horrible job of conveying data and are mostly just to attempt to be flashing with data.  
+                            </Text>
+                        </TextBox>
                         <Center w="100%">
                             <Box w="60%" h="600px">
                                 {/* <D3Container ref={basicWordcloudRef} data={data.basic} id="basic-wordcloud" viz={WordCloudChart} config={config.basic}/> */}

@@ -6,6 +6,8 @@ import {D3Container} from "../../components/D3Container";
 import BasicScatterPlot from "./../../components/d3/BasicScatter"
 import BasicBubblesChart from "./../../components/d3/BasicBubblesChart";
 import {config} from "./ScatterConfig";
+
+import {TextBox} from "./../../components/TextBox";
 import * as d3 from "d3";
 
 export const BasicScatter = () => {
@@ -57,13 +59,15 @@ export const BasicScatter = () => {
             <Box w="75%" maxW="1500px">
                 <CardContainer title="Scatter & Bubbles Chart">
                     <Box>
-                        <Text className="description">
-                            Scatter plots are used to show relationship between two variables. They can contain multiple different sets of data, which can be denoted by either markers or colors. In a scatter plot all markings are the same size. Be sure when using scatter plot to be mindful of not 
-                            <Link href="https://www.data-to-viz.com/caveat/overplotting.html" color="blue.500" mx="2" target="_blank" fontWeight={500}>
-                                overcrowding.
-                            </Link>
-                            It is also important to understand how you want to convey individual data points and see them, or if clusters and trends are important. For the following I decided that individual points are important, and chose to make every point visible by using fill opacity less than 1 and a border around each circle. 
-                        </Text>
+                        <TextBox>
+                            <Text className="description">
+                                Scatter plots are used to show relationship between two variables. They can contain multiple different sets of data, which can be denoted by either markers or colors. In a scatter plot all markings are the same size. Be sure when using scatter plot to be mindful of not 
+                                <Link href="https://www.data-to-viz.com/caveat/overplotting.html" color="blue.500" mx="2" target="_blank" fontWeight={500}>
+                                    overcrowding.
+                                </Link>
+                                It is also important to understand how you want to convey individual data points and see them, or if clusters and trends are important. For the following I decided that individual points are important, and chose to make every point visible by using fill opacity less than 1 and a border around each circle. 
+                            </Text>
+                        </TextBox>
 
                         {!loading ? 
                             <Box w="100%">
@@ -83,10 +87,11 @@ export const BasicScatter = () => {
                                 />
                             </Center>
                         }
-
-                        <Text className="description">
-                            Next up is the Bubbles chart, which is extremely similar to the scatter plot, but uses and extra dimension to encode data, which is the size of the circle. One critical thing to make sure to do is encode your data for bubble size into the area of the circle, and not the radius. Below shows an example of how much this skews how humans percieve the data and assign weight to the values.
-                        </Text>
+                        <TextBox>
+                            <Text className="description">
+                                Next up is the Bubbles chart, which is extremely similar to the scatter plot, but uses and extra dimension to encode data, which is the size of the circle. One critical thing to make sure to do is encode your data for bubble size into the area of the circle, and not the radius. Below shows an example of how much this skews how humans percieve the data and assign weight to the values.
+                            </Text>
+                        </TextBox>
                         {!bubbleLoading ? 
                             <VStack>
                                 <Box h="600px" w="100%">
@@ -107,7 +112,6 @@ export const BasicScatter = () => {
                                 />
                             </Center>
                         }
-                        
                     </Box>
                 </CardContainer>
             </Box>
