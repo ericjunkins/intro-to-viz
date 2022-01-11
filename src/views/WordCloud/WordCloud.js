@@ -23,10 +23,13 @@ export const WordCloud = () => {
                         <Text className="description">
                             WordClouds are.... mostly trash to be honest. They are pretty trendy on social media, and I guess if that's going to be your audience sure go for it, but they do a horrible job of conveying data and are mostly just to attempt to be flashing with data.  
                         </Text>
-                        <Box w="100%" h="1000px">
-                            {/* <D3Container ref={basicWordcloudRef} data={data.basic} id="basic-wordcloud" viz={WordCloudChart} config={config.basic}/> */}
-                            <Image src={cloud} alt="wordcloud" boxSize="100%"/>
-                        </Box>
+                        <Center w="100%">
+                            <Box w="60%" h="600px">
+                                {/* <D3Container ref={basicWordcloudRef} data={data.basic} id="basic-wordcloud" viz={WordCloudChart} config={config.basic}/> */}
+                                <Image src={cloud} alt="wordcloud" boxSize="100%"/>
+                            </Box>
+                        </Center>
+                        
                     </Box>
                 </CardContainer>
             </Box>

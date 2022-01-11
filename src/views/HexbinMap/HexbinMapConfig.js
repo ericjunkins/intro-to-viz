@@ -1,0 +1,63 @@
+export const data = {
+    basic: [
+        {state: "WA", dem: 58.4, rep: 39.0},
+        {state: "OR", dem: 56.9, rep: 40.7},
+        {state: "CA", dem: 63.5, rep: 34.3},
+        {state: "ID", dem: 33.1, rep: 63.9},
+        {state: "MT", dem: 40.6, rep: 56.9},
+        {state: "UT", dem: 37.7, rep: 58.2},
+        {state: "NM", dem: 54.3, rep: 43.5},
+        {state: "AZ", dem: 49.4, rep: 49.1},
+        {state: "WY", dem: 26.7, rep: 70.4},
+        {state: "ND", dem: 31.9, rep: 65.5},
+        {state: "SD", dem: 35.6, rep: 61.8},
+        {state: "NE", dem: 39.4, rep: 58.5},
+        {state: "KS", dem: 41.6, rep: 56.2},
+        {state: "OK", dem: 32.3, rep: 65.4},
+        {state: "TX", dem: 46.5, rep: 52.1},
+        {state: "IA", dem: 45.0, rep: 53.2},
+        {state: "MO", dem: 41.4, rep: 56.8},
+        {state: "AR", dem: 34.8, rep: 62.4},
+        {state: "LA", dem: 39.9, rep: 58.5},
+        {state: "MS", dem: 41.1, rep: 57.6},
+        {state: "MN", dem: 52.6, rep: 45.4},
+        {state: "AL", dem: 36.7, rep: 62.2},
+        {state: "FL", dem: 47.9, rep: 51.2},
+        {state: "GA", dem: 49.5, rep: 49.3},
+        {state: "SC", dem: 43.4, rep: 55.1},
+        {state: "NC", dem: 48.7, rep: 50.1},
+        {state: "TN", dem: 37.5, rep: 60.7},
+        {state: "KY", dem: 36.2, rep: 62.1},
+        {state: "IL", dem: 57.5, rep: 40.6},
+        {state: "IN", dem: 41.0, rep: 57.1},
+        {state: "WI", dem: 49.6, rep: 48.9},
+        {state: "MI", dem: 50.6, rep: 47.8},
+        {state: "OH", dem: 45.3, rep: 53.3},
+        {state: "WV", dem: 29.7, rep: 68.6},
+        {state: "VA", dem: 54.4, rep: 44.2},
+        {state: "MD", dem: 65.8, rep: 32.4},
+        {state: "PA", dem: 50.0, rep: 48.8},
+        {state: "NJ", dem: 57.3, rep: 41.4},
+        {state: "NY", dem: 60.9, rep: 37.8},
+        {state: "RI", dem: 59.7, rep: 38.8},
+        {state: "NH", dem: 52.9, rep: 45.5},
+        {state: "VT", dem: 66.4, rep: 30.8},
+        {state: "CT", dem: 59.3, rep: 39.2},
+        {state: "MA", dem: 65.9, rep: 32.3},
+        {state: "DE", dem: 65.8, rep: 32.4},
+        {state: "AK", dem: 53.1, rep: 43},
+        {state: "HI", dem: 63.7, rep: 34.3},
+        {state: "CO", dem: 55.4, rep: 41.9},
+        {state: "ME", dem: 53.1, rep: 44},
+        {state: "NV", dem: 50.1, rep: 47.7},
+        {state: "DC", dem: 93.0, rep: 5.4}
+    ]
+}
+
+export const config = {
+    basic: {
+        bins: [-0.2, -0.12, -0.06, -0.03, 0.03, 0.06, 0.12, 0.2],
+        colors: ["#003cff", "#ab001d"],
+        nuetral: "#f0be73"
+    }
+}

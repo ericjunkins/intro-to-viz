@@ -70,3 +70,13 @@ svg .tick > text {
   stroke-width: 3;
   fill: #fff;
 }
+
+.tooltip {
+  position: relative;
+  bottom: 50px;
+  width: 200px;
+  background-color: #fdf8e7;
+  border: 1px solid #545454;
+  box-shadow: 1px 1px 4px 4px #444;
+  color: #000;
+}

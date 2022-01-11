@@ -19,7 +19,7 @@ export const Bars = () => {
         <Center w="100%" pt="20px" textAlign="start">
             <Box w="75%" maxW="1500px">
                 <CardContainer title="Bar Graphs">
-                    <Box>
+                    <Box bg="#f5f5f5" py="10px" px="10px">
                         <Text className="description">
                             Let's start with one of the most standard data visualizations everyone is familiar with, the Bar chart. What is the bar chart good at?
                         </Text>
@@ -35,9 +35,12 @@ export const Bars = () => {
                     <Box w="100%" h="800px">
                         <D3Container ref={verticalRef} data={data.vertical} id="vertical" viz={BarsChart} config={config.vertical}/>
                     </Box>
+                    
+                    <Box bg="#f5f5f5" py="10px" px="10px">
                     <Text className="description">
                         In order for this visualization to be effective there ideally are 7 or less total number of values to display. See what happens when we overload the number of items to display here, we've lost a lot of ability to descern individual comparisons, and only tend to see the overal trend and average of the data.
                     </Text>
+                    </Box>
                     <Box w="100%" h="800px">
                         <D3Container ref={verticalOverloadRef} data={data["vertical-overload"]} id="vertical-overload" viz={BarsChart} config={config["vertical-overload"]}/>
                     </Box>
