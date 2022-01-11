@@ -14,7 +14,7 @@ export const Chord = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%">
                 <CardContainer title="Chord Diagram">
                     <Box>
                         <TextBox>
@@ -22,7 +22,7 @@ export const Chord = () => {
                                 The Chord Diagram is a fairly niche visualization, it is used to display flow between several entities. Each entity is represented by a fragment of the outer part. They are very compact and can display a lot of information, but they require the reader to have a good understanding of them to accurately convey information. Only use these when you know your audience will be able to interpret the data. Also consider giving small interactions to help distinguish data points
                             </Text>
                         </TextBox>
-                        <Box w="100%" h="800px" my="40px">
+                        <Box w="100%" h="800px" mt="40px">
                             <D3Container ref={basicChord} data={data.basic} id="basic-scatter" viz={ChordDiagram} config={config.basic} />
                         </Box>
                     </Box>

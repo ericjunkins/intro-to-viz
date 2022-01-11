@@ -58,8 +58,8 @@ export const Main = () => {
         </Center>
         <Center w="100%" py="150px" bg="#fafafa">
 
-            <VStack w="50%" textAlign="start">
-                <Box w="75%" px="15px">
+            <VStack w={["100%", "100%", "100%", "1000px"]} textAlign="start" px={["20px","20px","20px",0]}>
+                <Box w="100%" px="15px">
                   <Text fontSize="24px" fontWeight={700}>
                     What is Data Visualization
                   </Text>

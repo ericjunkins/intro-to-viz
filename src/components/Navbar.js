@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Center, Box, Flex, Text, HStack, Button} from "@chakra-ui/react";
+import {Center, Box, Flex, Text, HStack, Button, SimpleGrid} from "@chakra-ui/react";
 import styled from "styled-components";
 
 
@@ -32,13 +32,7 @@ const Navbar = ({size}) => {
         <Center
             key={"nav-" + i}
             borderRight={i != navs.length -1 ? "1px solid #ababab" : "none"}  
-            // borderLeft={i != navs.length -1 ? "1.5px solid #333" : "none"}  
-            // border="1px solid #333"
-            // borderRadius="5px"
-            px="20px"
-            // bg="#034d69"
-            
-            
+            px={["20px","20px","10px","20px"]}
         >
             <Button
                 onClick={() => navTo(d.link)}
@@ -46,11 +40,10 @@ const Navbar = ({size}) => {
                 boxShadow="none"
                 _hover={{background: "none", color: "#42a6cc"}}
                 _focus={{border: "none", background: "none"}}
-                _focus={{border: "none", background: "none"}}
                 _focusVisible={{border: "none", background: "none"}}
                 // 
             >
-                <Text fontSize="16px" fontWeight={500} color="#033345"> {d.name} </Text>
+                <Text fontSize={["16px","16px","14px","16px"]} fontWeight={500} color="#033345"> {d.name} </Text>
             </Button>
         </Center>
         
@@ -68,11 +61,11 @@ const Navbar = ({size}) => {
             className="navbar" 
             py="5px"
         >
-            <HStack 
+            <SimpleGrid columns={[navs.length/2, navs.length/2, navs.length/2, navs.length]}
                 // spacing={["15px", "15px", "30px", "45px"]} 
                 color="#333">
                 {buttons}
-            </HStack>
+            </SimpleGrid>
         </Center>
     )
 }

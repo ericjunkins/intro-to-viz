@@ -56,7 +56,7 @@ export const BasicScatter = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%" maxW="1500px">
                 <CardContainer title="Scatter & Bubbles Chart">
                     <Box>
                         <TextBox>

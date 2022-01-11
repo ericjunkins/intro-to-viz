@@ -94,7 +94,7 @@ export default function HexbinMap(config = {}) {
                     .attr('font-size', 30)
                     .attr('font-weight', 500)
                     .attr('x', width/2 + margin.left)
-                    .attr('y', 30)
+                    .attr('y', 80)
                     .text('2020 Presedential Election Results')
                 
                 let legend = chartArea.append('g')

@@ -17,13 +17,14 @@ export const Donut = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%">
                 <CardContainer title="Donut/Pie Charts">
                     <TextBox>
                         <Text className="description">
                             The Donut/Pie Chart are also an extremely common visualization tool that everyone has probably encountered. Donut Charts are very good for displaying parts of the whole, relative comparisons, and having a compact visualization. In practice bar charts and donut charts contain basically the same data
                         </Text>
                     </TextBox>
+                    <Box my="20px"/>
                     <TextBox>
                         <Text className="description">
                             In practice bar charts and donut charts contain basically the same data, however they are organized very differently. When choosing between them you should ask yourself, what is more important, understanding the rough percentage of whole a value is, or being able to make pairwise comparisons.

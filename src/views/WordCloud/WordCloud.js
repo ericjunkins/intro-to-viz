@@ -18,7 +18,7 @@ export const WordCloud = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%">
                 <CardContainer title="WordClouds">
                     <Box>
                         <TextBox>
@@ -27,12 +27,11 @@ export const WordCloud = () => {
                             </Text>
                         </TextBox>
                         <Center w="100%">
-                            <Box w="60%" h="600px">
+                            <Box w={["60%"]} h={["600px","600px","500px","600px"]}>
                                 {/* <D3Container ref={basicWordcloudRef} data={data.basic} id="basic-wordcloud" viz={WordCloudChart} config={config.basic}/> */}
                                 <Image src={cloud} alt="wordcloud" boxSize="100%"/>
                             </Box>
                         </Center>
-                        
                     </Box>
                 </CardContainer>
             </Box>

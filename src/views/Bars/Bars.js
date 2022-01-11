@@ -19,7 +19,7 @@ export const Bars = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%">
                 <CardContainer title="Bar Graphs">
                     <TextBox>
                         <Text className="description">
@@ -71,7 +71,7 @@ export const Bars = () => {
                             Another flavor of bar charts is a Stacked Bar chart, which is where within a single bar you set inlay multiple pieces of data. This is very good at showing section breakdowns between groups.
                         </Text>
                     </TextBox>
-                    <Box w="100%" h="800px">
+                    <Box w="100%" h="800px" py="30px">
                         <D3Container ref={stackedRef} data={data["stacked"]} id="stacked" viz={StackedBarsChart} config={config["stacked"]}/>
                     </Box>
                 </CardContainer>

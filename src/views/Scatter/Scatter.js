@@ -104,7 +104,7 @@ export const Scatter = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="75%" maxW="1500px">
+            <Box w="100%" maxW="1500px">
                 <CardContainer title="Interactivity & Data Dimensions">
                     <Box>
                         <TextBox>
@@ -115,7 +115,12 @@ export const Scatter = () => {
                         {!loading ? 
                             <Box w="100%">
                                 <Center  w="100%" py="20px">
-                                    <HStack w="100%" spacing="50px" px="30px" ml="40px">
+                                    <HStack 
+                                        w="100%" 
+                                        spacing={["50px", "50px", "50px", "50px"]} 
+                                        px="30px" 
+                                        ml="40px"
+                                    >
                                     <Button onClick={()=> {playClick()}} variant="outline">
                                             <Icon
                                                 color="blue.500"
@@ -153,7 +158,7 @@ export const Scatter = () => {
                                     </HStack>
                                 </Center>
                                 <Center w="100%" mt="35px">
-                                    <ButtonGroup variant="outline" spacing={8}>
+                                    <ButtonGroup variant="outline" spacing={[8,8,3,8]}>
                                         <Button
                                             borderColor={asia ? "#1776b6" : "#ababab"}
                                             border={"2px"}
@@ -162,9 +167,9 @@ export const Scatter = () => {
                                                 continentClick('asia')
                                                 setAsia(e=> !e)
                                             }} 
-                                            fontSize="20px" 
+                                            fontSize={["14px", "14px", "16px", "20px" ]}
                                             fontWeight={700} 
-                                            px="30px"
+                                            px={["30px","30px","15px","30px"]}
                                         >
                                             Asia
                                         </Button>
@@ -176,9 +181,9 @@ export const Scatter = () => {
                                                 continentClick('africa')
                                                 setAfrica(e=> !e)
                                             }} 
-                                            fontSize="20px" 
+                                            fontSize={["14px", "14px", "16px", "20px" ]}
                                             fontWeight={700} 
-                                            px="30px"
+                                            px={["30px","30px","15px","30px"]}
                                         >
                                             Africa
                                         </Button>
@@ -190,9 +195,10 @@ export const Scatter = () => {
                                                 continentClick('europe')
                                                 setEurope(e=> !e)
                                             }} 
-                                            fontSize="20px" 
+                                            fontSize={["14px", "14px", "16px", "20px" ]}
                                             fontWeight={700} 
-                                            px="30px">
+                                            px={["30px","30px","15px","30px"]}
+                                        >
                                             Europe
                                         </Button>
                                         <Button
@@ -203,13 +209,18 @@ export const Scatter = () => {
                                                 continentClick('americas')
                                                 setAmericas(e=> !e)
                                             }} 
-                                            fontSize="20px" 
+                                            fontSize={["14px", "14px", "16px", "20px" ]}
                                             fontWeight={700}
-                                            px="30px"
+                                            px={["30px","30px","15px","30px"]}
                                         >
                                             Americas
                                         </Button>
-                                        <Button px="30px" onClick={()=> scalingClick()} w="200px">
+                                        <Button 
+                                            px="30px" 
+                                            onClick={()=> scalingClick()} 
+                                            w={["200px", "200px", "200px", "200px"]}
+                                            fontSize={["14px", "14px", "16px", "20px" ]}
+                                        >
                                             {scaling? "Display: Logramithic" : "Display: Linear"}
                                         </Button>
                                     </ButtonGroup>

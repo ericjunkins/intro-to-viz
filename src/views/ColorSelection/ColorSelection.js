@@ -14,14 +14,14 @@ import data_color_picker from "./../../assets/data_color_picker.png";
 
 const ColorBox = ({color, w="200px"}) => {
     return (
-        <Box py="20px">
-            <VStack border="2px solid #000" w={w} borderRadius="10px">
-                <Box h="150px" w="100%" bg={color} borderBottom="2px solid #000" borderRadius="10px 10px 0px 0px"/>
-                <Center h="40px" w="150px">
-                    <Text fontSize="18px" fontWeight={500}> {color} </Text>
+        <Center py="20px" w="100%" h="100%" px={["20px", "20px", "20px", "5px"]}>
+            <VStack border="2px solid #000" w={"100%"} borderRadius="10px">
+                <Box h="80px" w="100%" bg={color} borderBottom="2px solid #000" borderRadius="10px 10px 0px 0px"/>
+                <Center w="100%">
+                    <Text py="5px" fontSize="16px" fontWeight={500}> {color} </Text>
                 </Center>
             </VStack>
-        </Box>
+        </Center>
     )
 }
 
@@ -36,19 +36,19 @@ export const ColorSelection = () => {
     let divergent = ['#00429d', '#4771b2', '#73a2c6', '#a5d5d8', '#ffffe0', '#ffbcaf', '#f4777f', '#cf3759', '#93003a']
 
     let qualitativeCards = schemeCategory10.map(d=> 
-        <ColorBox color={d} w="110px"/>    
+        <ColorBox color={d} w="80px"/>    
     )
 
     let sequentialBluesCards = sequentialBlues.map(d=> 
-        <ColorBox color={d} w="120px"/>    
+        <ColorBox color={d} w={["80px","80px","170px","80px"]}/>    
     )
 
     let sequentialTwoHueCards = sequentialTwoHue.map(d=> 
-        <ColorBox color={d} w="110px"/>    
+        <ColorBox color={d} w="80px"/>    
     )
 
     let divergentCards = divergent.map(d=> 
-        <ColorBox color={d} w="120px"/>    
+        <ColorBox color={d} w="80px"/>    
     )
 
     
@@ -67,7 +67,7 @@ export const ColorSelection = () => {
                 </Text>
             </Center>
             <Center w="100%" pb="30px" pt="50px">
-                <Box w="50%" textAlign="start">
+                <Box w={["100%", "100%", "100%", "1000px"]} textAlign="start" px={["20px","20px","20px",0]}>
                     <Text fontSize="24px" fontWeight={700}>
                         Why is Color Important
                     </Text>
@@ -113,7 +113,7 @@ export const ColorSelection = () => {
                     <Text className="description" py="20px">
                         A qualitative palette is a group of colors that are all inherently differnt hues, distinguishable from each other. These palettes are generally used for categorical data, where each categorical variable is assigned a color. Generally these are 10 or less, as after that colors become hard to distinguish. Below is an example of a famous color set, called Scheme Category 10 by D3. This color set is one set that is maximally spaced in hue-space, to give the higest distinguishability between colors.
                     </Text>
-                    <SimpleGrid columns={10}>
+                    <SimpleGrid columns={[10, 10, 5, 10]}>
                         {qualitativeCards}
                     </SimpleGrid>
 
@@ -132,7 +132,7 @@ export const ColorSelection = () => {
                         This paletee is a single hue of blue, that then is varied its' lightntess/darkness to produce a sequential set of colors
                     </Text>
 
-                    <SimpleGrid columns={9}>
+                    <SimpleGrid columns={[9, 9, 3, 9]}>
                         {sequentialBluesCards}
                     </SimpleGrid>
 
@@ -144,7 +144,7 @@ export const ColorSelection = () => {
                         This paletee is two hues, a dark red and yellow, with the linear interpolation between the two, leading to a sequential set that doesn't vary in lightness, just over the hues between. 
                     </Text>
 
-                    <SimpleGrid columns={10}>
+                    <SimpleGrid columns={[10, 10, 5, 10]}>
                         {sequentialTwoHueCards}
                     </SimpleGrid>
 
@@ -155,7 +155,7 @@ export const ColorSelection = () => {
                         Diverging palettes are ones essentially two sequential palettes that share an endpoint at the central value. These are used for data sets that have a meaningful middle ground, like a positive and negative value around 0.  
                     </Text>
 
-                    <SimpleGrid columns={9}>
+                    <SimpleGrid columns={[9, 9, 3, 9]}>
                         {divergentCards}
                     </SimpleGrid>
                     
@@ -279,11 +279,6 @@ export const ColorSelection = () => {
                             </Text>
                         </Box>
                     </SimpleGrid>
-                    
-
-                    
-
-
                 </Box>
             </Center>
         </Box>
