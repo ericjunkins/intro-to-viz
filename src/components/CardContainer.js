@@ -11,14 +11,14 @@ export const CardContainer = ({title, children, height}) => {
             // bg="#fff"
             // borderRadius="10px" 
             borderTop="3px solid #ababab"
-            px="20px" 
+            px={[0,"20px"]} 
             w="100%" 
             h={height ? height : "100%"} 
             pb="20px" 
         >
             {title ? 
                 <Flex justify="space-between" w="100%"  pt="10px" mb="20px">
-                    <Text fontWeight={700} fontSize="26px" lineHeight="26px" py="0px" my="5px"> {title} </Text>
+                    <Text fontWeight={700} fontSize={["24px","26px"]} lineHeight="26px" py="0px" my="5px"> {title} </Text>
                 </Flex>
                 : null
             }

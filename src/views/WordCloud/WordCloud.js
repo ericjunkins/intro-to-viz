@@ -18,7 +18,7 @@ export const WordCloud = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%">
+            <Box w="100%" id="wordcloud">
                 <CardContainer title="WordClouds">
                     <Box>
                         <TextBox>

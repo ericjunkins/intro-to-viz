@@ -30,7 +30,7 @@ export const Hexbin = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%">
+            <Box w="100%" id="hexbin">
                 <CardContainer title="Hexbin Map">
                     <Box>
                         <TextBox>

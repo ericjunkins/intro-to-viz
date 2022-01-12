@@ -14,7 +14,7 @@ export const Chord = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%">
+            <Box w="100%" id="chord">
                 <CardContainer title="Chord Diagram">
                     <Box>
                         <TextBox>

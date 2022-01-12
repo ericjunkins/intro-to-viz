@@ -104,7 +104,7 @@ export const Scatter = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%" maxW="1500px">
+            <Box w="100%" id="interactivity">
                 <CardContainer title="Interactivity & Data Dimensions">
                     <Box>
                         <TextBox>

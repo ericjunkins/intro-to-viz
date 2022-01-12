@@ -17,7 +17,7 @@ export const Donut = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%">
+            <Box w="100%" id="donut">
                 <CardContainer title="Donut/Pie Charts">
                     <TextBox>
                         <Text className="description">

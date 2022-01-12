@@ -12,7 +12,7 @@ export const Treemap = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%" maxW="1500px">
+            <Box w="100%" id="treemap">
                 <CardContainer title="Treemap">
                     <Box>
                         <TextBox>

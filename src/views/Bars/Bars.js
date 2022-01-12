@@ -19,8 +19,8 @@ export const Bars = () => {
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
-            <Box w="100%">
-                <CardContainer title="Bar Graphs">
+            <Box w="100%" id="bar">
+                <CardContainer title="Bar Graphs" >
                     <TextBox>
                         <Text className="description">
                             Let's start with one of the most standard data visualizations everyone is familiar with, the Bar chart. Bar Charts are good for, Numberical comparisons, catagorical data, and ranking. Humans are very good at making direct comparisons of relative sizes from one bar to another.
