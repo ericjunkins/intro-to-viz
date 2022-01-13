@@ -74,7 +74,7 @@ export default function RadarChart(config = {}) {
                     })
                 })
                 
-                // drawLegend();
+                drawLegend();
                 drawBackground();
 
             }        
@@ -93,6 +93,7 @@ export default function RadarChart(config = {}) {
                         .attr('class', 'spider-path')
                         .attr('id', 'path-' + i)
                         .attr('stroke', colors(config.groups[i]))
+                        .attr('stroke-width', size === 'sm' ? 2 : 3)
                         .attr('fill', colors(config.groups[i]))
                         .attr('fill-opacity', 0.25)
                         .on('mouseover', mouseover)
@@ -113,6 +114,7 @@ export default function RadarChart(config = {}) {
                         dots.enter()
                             .append('circle')
                             .attr('class', 'spider-dots')
+                            .attr('stroke-width', size === 'sm' ? 2 : 3)
                             .attr('cx', d=> d.x)
                             .attr('cy', d=> d.y)
                             .attr('r',  5)
@@ -163,30 +165,60 @@ export default function RadarChart(config = {}) {
 
             drawLegend = () => {
                 if (!firstRender) return; 
-                var legend = chartArea.append('g')
-                    .attr('transform', 'translate(' + (radius + 60) + "," + (radius/2 + 30) + ")")
-                
-                let rectSize = 30
-                groups.forEach(function(d, i){
-                    let tmp = legend.append('g')
-                        .attr('transform', 'translate(0,' + (i * (rectSize * 1.5)) + ")")
-
-                    tmp.append('rect')
-                        .attr('x', 0)
-                        .attr('y', 0)
-                        .attr('height', rectSize)
-                        .attr('width', rectSize)
-                        .attr('fill', colors.range()[i])
-                        .attr('stroke', '#000')
+                if (size === 'sm' ) {
+                    var legend = chartArea.append('g')
+                        .attr('transform', 'translate(' + ( -radius - 30) + "," + (radius + 30) + ")")
                     
-                    tmp.append('text')
-                        .attr('x', rectSize + 10)
-                        .attr('y', rectSize /2)
-                        .attr('class', 'legend-text')
-                        .attr('dominant-baseline', 'middle')
-                        .text(d)
+                    let rectSize = 15
 
-                })
+                    groups.forEach(function(d, i){
+                        let tmp = legend.append('g')
+                            .attr('transform', 'translate(' + (i * (radius* 0.7)) + ",0)")
+
+                        tmp.append('rect')
+                            .attr('x', 0)
+                            .attr('y', 0)
+                            .attr('height', rectSize)
+                            .attr('width', rectSize)
+                            .attr('fill', colors.range()[i])
+                            .attr('stroke', '#000')
+                        
+                        tmp.append('text')
+                            .attr('x', rectSize + 5)
+                            .attr('y', rectSize /2)
+                            .attr('class', 'label-text-' + size)
+                            .attr('dominant-baseline', 'middle')
+                            .text(d)
+
+                    })
+
+
+                } else {  
+                    var legend = chartArea.append('g')
+                        .attr('transform', 'translate(' + (radius + 60) + "," + (radius/2 + 30) + ")")
+                    
+                    let rectSize = 30
+                    groups.forEach(function(d, i){
+                        let tmp = legend.append('g')
+                            .attr('transform', 'translate(0,' + (i * (rectSize * 1.5)) + ")")
+
+                        tmp.append('rect')
+                            .attr('x', 0)
+                            .attr('y', 0)
+                            .attr('height', rectSize)
+                            .attr('width', rectSize)
+                            .attr('fill', colors.range()[i])
+                            .attr('stroke', '#000')
+                        
+                        tmp.append('text')
+                            .attr('x', rectSize + 10)
+                            .attr('y', rectSize /2)
+                            .attr('class', 'label-text-' + size)
+                            .attr('dominant-baseline', 'middle')
+                            .text(d)
+
+                    })
+                }
             }
 
             mouseover = (d) => {

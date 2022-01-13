@@ -50,7 +50,6 @@ svg .tick > text {
 
 .spider-path{
   stroke-opacity: 1;
-  stroke-width: 3;
 }
 
 .spider-circles {
@@ -67,7 +66,6 @@ svg .tick > text {
 }
 
 .spider-dots {
-  stroke-width: 3;
   fill: #fff;
 }
 

@@ -59,6 +59,6 @@ export const config = {
         sm: { top: 0, bottom: 0, left: 0, right: 0},
         md: { top: 0, bottom: 0, left: 0, right: 0},
         lg: { top: 0, bottom: 0, left: 0, right: 0},
-        xl: { top: 50, bottom: 0, left: 0, right: 0},
+        xl: { top: 50, bottom: 50, left: 50, right: 50},
     }
 }
