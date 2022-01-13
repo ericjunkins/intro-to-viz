@@ -90,6 +90,9 @@ export default function BarsChart(config = {}) {
                         .domain([0, d3.max(data, d=> d.value)* 1.2 ])
                         .range([height, 0])
                         
+                    if (data.length > 10){
+                        x_axis.tickFormat("")
+                    }
                     x_axis.scale(x)
                     y_axis.scale(y)
 

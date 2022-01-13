@@ -4,7 +4,7 @@ import {Text} from "@chakra-ui/react";
 export const SiteText = ({text, type='standard', py, px, pt, pb}) => {
     let fs;
     let fw;
-    if (type === "standard") fs = ["14px", "14px", "16px", "18px"]
+    if (type === "standard") fs = ["14px", "14px", "16px", "20px"]
     else if ( type === "subtitle") {
         fs = ["18px", "18px", "18px", "20px"]
         fw=600
