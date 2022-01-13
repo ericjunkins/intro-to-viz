@@ -24,7 +24,8 @@ export default function BasicScatterPlot(config = {}) {
         y_axis,
         xLabel,
         yLabel,
-        drawLegend
+        drawLegend,
+        size=config.size
 
 
         x = d3.scaleLinear()
@@ -62,19 +63,18 @@ export default function BasicScatterPlot(config = {}) {
             labels = chartArea.append('g')
 
             xLabel = labels.append("text")
-                .attr("font-size", "20px")
+                .attr('class', 'label-text-' + size)
                 .attr("text-anchor", "middle")
                 .text(config.labels.x)
-                .attr("y", 70)
+                .attr("y", size ==='sm' ?  margin.bottom - 10 : 60)
                 .attr("x", 0)
 
             yLabel = labels.append("text")
                 .attr("transform", "rotate(-90)")
-                .attr("font-size", "20px")
+                .attr('class', 'label-text-' + size)
                 .attr("text-anchor", "middle")
                 .text(config.labels.y)
-                .attr("y", -70)
-                .attr("x", -170)
+                .attr("y", size=== 'sm' ? -margin.left + 10 : -60)
 
             
             updateScales = (ticks) => {
@@ -84,7 +84,7 @@ export default function BasicScatterPlot(config = {}) {
                 y
                     .range([height, 0])
                     .domain(config.domain.y)
-
+                
                 x_axis.scale(x)
                 y_axis.scale(y)
                 xAxisCall
@@ -105,13 +105,15 @@ export default function BasicScatterPlot(config = {}) {
 
             drawLegend = () => {
                 if (!firstRender) return; 
+                let wOffset = size === 'sm' ? 60 : 100
+                let hOffset = size === 'sm' ? 50 : 100
                 let legend = chartArea.append('g')
-                    .attr('transform', 'translate(' + (width - 100) + "," + (height - 100) + ")")
+                    .attr('transform', 'translate(' + (width - wOffset) + "," + (height - hOffset) + ")")
 
-                let circleSize = 8
+                let circleSize = size === 'sm' ? 4 : 8
                 color.domain().forEach(function(d, i){
                     let tmp = legend.append('g')
-                        .attr('transform', 'translate(0,' + (30 * i) + ")")
+                        .attr('transform', 'translate(0,' + (circleSize * 3.5 * i) + ")")
                     
                     tmp.append('circle')
                         .attr('cx', 0)
@@ -144,7 +146,7 @@ export default function BasicScatterPlot(config = {}) {
                     .attr('class', 'dots')
                     .attr("cx", function (d) { return x(d.sepal_length); } )
                     .attr("cy", function (d) { return y(d.petal_length); } )
-                    .attr("r", 8)
+                    .attr("r", size === "sm" ? 4: 8)
                     .style("fill", function (d) { return color(d.species) } )
                     .attr('fill-opacity', 0.8)
                     .attr('stroke', '#000')

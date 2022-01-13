@@ -24,7 +24,8 @@ export default function StackedBarsChart(config = {}) {
         yLines,
         x_axis,
         y_axis,
-        drawLegend
+        drawLegend,
+        size=config.size
 
         x = d3.scaleBand().padding(0.08)
         y = d3.scaleLinear()
@@ -55,10 +56,10 @@ export default function StackedBarsChart(config = {}) {
             
             xAxisCall = chartArea.append('g')
                 // .attr('transform', 'translate(0,' + height + ')')
-                .attr('class', 'axis axis--x')
+                .attr('class', 'axis-' + size)
 
             yAxisCall = chartArea.append('g')
-                .attr('class', 'axis, axis--y')
+            .attr('class', 'axis-' + size)
 
             yLines = chartArea.append('g')
                 .attr('class', 'grid')
@@ -67,12 +68,14 @@ export default function StackedBarsChart(config = {}) {
 
             yLabel = labels.append('text')
                 .attr('transform', 'rotate(-90)')
-                .attr('y', -75)
-                .attr('class', 'label')
+                .attr('y', (size === 'sm' ? -50 : -75))
+                .attr('class', 'label-text-' + size)
+                .attr('text-anchor', 'middle')
 
             xLabel = labels.append('text')
-                .attr('y', 75)
-                .attr('class', 'label')
+                .attr('y', (size === 'sm' ? 40 : 75))
+                .attr('class', 'label-text-' + size)
+                .attr('text-anchor', 'middle')
             
             updateScales = (ticks) => {
                 data.forEach(function(d){

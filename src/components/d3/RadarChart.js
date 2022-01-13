@@ -1,6 +1,8 @@
 import * as d3 from "d3";
 import * as d3Collection from 'd3-collection';
 
+import { getSize } from "./../../helpers/FontSizes";
+
 export default function RadarChart(config = {}) {    
     var margin = config.margin || { top: 50, bottom: 50, left: 50, right: 50 },
         // width = config.width ? config.width - margin.left - margin.right : 900 - margin.left - margin.right,
@@ -21,7 +23,11 @@ export default function RadarChart(config = {}) {
         drawLegend,
         drawBackground,
         mouseover,
-        mouseout
+        mouseout,
+        size=config.size
+
+
+        // size = getSize(config.width)
 
         pie = d3.pie()
             .value(function(d){ return d.value})
@@ -53,7 +59,7 @@ export default function RadarChart(config = {}) {
             
             updateScales = (ticks) => {
                 chartArea.attr('transform', 'translate(' + width/2 + ',' + height/2 + ')')
-                radius = Math.min(width, height) * 0.4
+                radius = Math.min(width, height) * 0.35
                 radialScale
                     .domain([0, 5])
                     .range([20, radius])
@@ -68,7 +74,7 @@ export default function RadarChart(config = {}) {
                     })
                 })
                 
-                drawLegend();
+                // drawLegend();
                 drawBackground();
 
             }        
@@ -149,8 +155,7 @@ export default function RadarChart(config = {}) {
                     .attr('x', d=> angleToCoordinate(d.angle, 5.8).x)
                     .attr('y', d=> angleToCoordinate(d.angle, 5.8).y)
                     .attr('text-anchor', d=> d.anchor)
-                    .attr('class', 'labels-text')
-                    .attr('font-size', '20px')
+                    .attr('class', 'label-text-' + size)
                     .attr('font-weight', 500)
                     .text(d=> d.label)
 

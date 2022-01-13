@@ -8,9 +8,12 @@ import BasicBubblesChart from "./../../components/d3/BasicBubblesChart";
 import {config} from "./ScatterConfig";
 
 import {TextBox} from "./../../components/TextBox";
+import {SiteText} from "./../../components/SiteText";
+
+import { getSize } from "./../../helpers/FontSizes";
 import * as d3 from "d3";
 
-export const BasicScatter = () => {
+export const BasicScatter = ({size}) => {
     const basicScatterRef = useRef();
     const bubbleRadiusRef = useRef();
     const bubbleAreaRef = useRef()
@@ -19,6 +22,15 @@ export const BasicScatter = () => {
     const [loading, setLoading] = React.useState(true);
     const [bubbleLoading, setBubbleLoading] = useState(true);
 
+    let s = getSize(size.width)
+    let m = config.margins[getSize(size.width)]
+    
+    config.basic.size = s
+    config.radius.size = s
+    config.area.size = s
+    config.basic.margin = m
+    config.radius.margin = m
+    config.area.margin = m
 
     useEffect(() => {
         d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv").then((d) => {
@@ -60,24 +72,26 @@ export const BasicScatter = () => {
                 <CardContainer title="Scatter & Bubbles Chart">
                     <Box>
                         <TextBox>
-                            <Text className="description">
-                                Scatter plots are used to show relationship between two variables. They can contain multiple different sets of data, which can be denoted by either markers or colors. In a scatter plot all markings are the same size. Be sure when using scatter plot to be mindful of not 
-                                <Link href="https://www.data-to-viz.com/caveat/overplotting.html" color="blue.500" mx="2" target="_blank" fontWeight={500}>
-                                    overcrowding.
-                                </Link>
-                                It is also important to understand how you want to convey individual data points and see them, or if clusters and trends are important. For the following I decided that individual points are important, and chose to make every point visible by using fill opacity less than 1 and a border around each circle. 
-                            </Text>
+                            <SiteText 
+                                type="standard"
+                                text="Scatter plots are used to show relationship between two variables. They can contain multiple different sets of data, which can be denoted by either markers or colors. In a scatter plot all markings are the same size. Be sure when using scatter plot to be mindful of not overcrowding."
+                            />
+                            <SiteText 
+                                type="standard"
+                                text="It is also important to understand how you want to convey individual data points and see them, or if clusters and trends are important. For the following I decided that individual points are important, and chose to make every point visible by using fill opacity less than 1 and a border around each circle. "
+                                py="15px"
+                            />
                         </TextBox>
 
                         {!loading ? 
                             <Box w="100%">
-                                <Box w="100%" h="800px">
+                                <Box w="100%" h={["400px","800px"]} py="15px">
                                     <D3Container ref={basicScatterRef} data={basicData} id="basic-scatter" viz={BasicScatterPlot} config={config.basic} />
                                 </Box>
                             </Box>
                            
                             :
-                            <Center w="100%" h="800px" >
+                            <Center w="100%" h={["400px","800px"]} >
                                 <Spinner   
                                     thickness='4px'
                                     speed='0.65s'
@@ -88,16 +102,18 @@ export const BasicScatter = () => {
                             </Center>
                         }
                         <TextBox>
-                            <Text className="description">
-                                Next up is the Bubbles chart, which is extremely similar to the scatter plot, but uses and extra dimension to encode data, which is the size of the circle. One critical thing to make sure to do is encode your data for bubble size into the area of the circle, and not the radius. Below shows an example of how much this skews how humans percieve the data and assign weight to the values.
-                            </Text>
+                            <SiteText 
+                                type="standard"
+                                text="Next up is the Bubbles chart, which is extremely similar to the scatter plot, but uses and extra dimension to encode data, which is the size of the circle. One critical thing to make sure to do is encode your data for bubble size into the area of the circle, and not the radius. Below shows an example of how much this skews how humans percieve the data and assign weight to the values."
+                                
+                            />
                         </TextBox>
                         {!bubbleLoading ? 
                             <VStack>
-                                <Box h="600px" w="100%">
+                                <Box h={["350px", "600px"]} w="100%" py="10px">
                                     <D3Container ref={bubbleRadiusRef} data={bubbleData} id="bubbles-linear" viz={BasicBubblesChart} config={config.radius} />
                                 </Box>
-                                <Box h="600px" w="100%">
+                                <Box h={["350px", "600px"]} w="100%" py="10px">
                                     <D3Container ref={bubbleAreaRef} data={bubbleData} id="bubbles-linear" viz={BasicBubblesChart} config={config.area} />
                                 </Box>
                             </VStack>

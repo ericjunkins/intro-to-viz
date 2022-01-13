@@ -25,20 +25,22 @@ export default function BasicBubblesChart(config = {}) {
         xLabel,
         yLabel,
         drawLegend,
-        z
+        z,
+        size=config.size
 
 
         x = d3.scaleLinear()
         y = d3.scaleLinear()
 
+        let bubblesMax = size === 'sm' ? 20 : 40
         if (config.scaling === 'area'){
             z = d3.scaleSqrt()
                 .domain([200000, 1310000000])
-                .range([2, 40]);
+                .range([2, bubblesMax]);
         } else if (config.scaling === 'radius'){
             z = d3.scaleLinear()
                 .domain([200000, 1310000000])
-                .range([2, 40]);
+                .range([2, bubblesMax]);
         }
         
         x_axis = d3.axisBottom().ticks(3)
@@ -62,10 +64,10 @@ export default function BasicBubblesChart(config = {}) {
             
             xAxisCall = chartArea.append('g')
                 // .attr('transform', 'translate(0,' + height + ')')
-                .attr('class', 'axis axis--x')
+                .attr('class', 'axis-' + size)
 
             yAxisCall = chartArea.append('g')
-                .attr('class', 'axis, axis--y')
+                .attr('class', 'axis-' + size)
 
             yLines = chartArea.append('g')
                 .attr('class', 'grid')
@@ -74,14 +76,14 @@ export default function BasicBubblesChart(config = {}) {
 
 
             xLabel = labels.append("text")
-                .attr("font-size", "20px")
+                .attr('class', 'axis-text-' + size)
                 .attr("text-anchor", "middle")
                 .attr("y", 70)
                 .attr("x", 0)
 
             yLabel = labels.append("text")
                 .attr("transform", "rotate(-90)")
-                .attr("font-size", "20px")
+                .attr('class', 'axis-text-' + size)
                 .attr("text-anchor", "middle")                
                 .attr("y", -70)
 
@@ -114,9 +116,8 @@ export default function BasicBubblesChart(config = {}) {
 
                 let title = labels.append('text')
                     .attr('x', width/2)
-                    .attr('font-size', '26px')
-                    .attr('font-weight', 800)
-                    .attr('y', 0)
+                    .attr('class', 'title-text-' + size) 
+                    .attr('y', -margin.top/2)
                     .attr('text-anchor', 'middle')
                     .text(config.title)
                 
@@ -125,24 +126,27 @@ export default function BasicBubblesChart(config = {}) {
 
             drawLegend = () => {
                 if (!firstRender) return; 
-                const size = 20
+                const dotSize = size === "sm" ? 5 : 8
                 const allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
 
                 const valuesToShow = config.valuesToShow
-                // const xCircle = 390
                 const xCircle = 0
-                // const xLabel = 440
-                const xLabel = 50
                 
+                const xLabel = size === 'sm' ? 25 : 50
+                const wOffset = size === 'sm' ? 30 : 50
+                const hOffset = size === 'sm' ? 30 : 50
+
+                const cirleOffset = size === 'sm' ? 50 : 100
+
                 let legend = chartArea.append('g')
-                    .attr('transform', 'translate(' + (width - 50) + "," + (50) + ")")
+                    .attr('transform', 'translate(' + (width - wOffset) + "," + (hOffset) + ")")
 
                 legend
                     .selectAll("legend")
                     .data(valuesToShow)
                     .join("circle")
                         .attr("cx", xCircle)
-                        .attr("cy", d => height - 100 - z(d))
+                        .attr("cy", d => height - cirleOffset - z(d))
                         .attr("r", d => z(d))
                         .style("fill", "none")
                         .attr("stroke", "black")
@@ -154,8 +158,8 @@ export default function BasicBubblesChart(config = {}) {
                     .join("line")
                         .attr('x1', d => xCircle + z(d))
                         .attr('x2', xLabel)
-                        .attr('y1', d => height - 100 - z(d))
-                        .attr('y2', d => height - 100 - z(d))
+                        .attr('y1', d => height - cirleOffset - z(d))
+                        .attr('y2', d => height - cirleOffset - z(d))
                         .attr('stroke', 'black')
                         .style('stroke-dasharray', ('2,2'))
 
@@ -165,28 +169,29 @@ export default function BasicBubblesChart(config = {}) {
                     .data(valuesToShow)
                     .join("text")
                         .attr('x', xLabel)
-                        .attr('y', d => height - 100 - z(d))
+                        .attr('y', d => height - cirleOffset - z(d))
                         .text( d => d/1000000)
-                        .style("font-size", 10)
+                        .style("font-size", size === 'sm' ? 8 : 10)
                         .attr('alignment-baseline', 'middle')
 
                 // Legend title
                 legend
                     .append("text")
                     .attr('x', xCircle)
-                    .attr("y", height - 100 +30)
+                    .attr("y", height - cirleOffset + (size === 'sm' ? 15 : 20))
                     .text("Population (M)")
                     .attr("text-anchor", "middle")
+                    .attr('class', 'label-text-' + size)
 
-                    let legendGroup = legend.append('g')
-                    .attr('transform', 'translate(' + (0) + "," + (150) + ")")
+                let legendGroup = legend.append('g')
+                    .attr('transform', 'translate(' + (0) + "," + (size === 'sm' ? height * 0.35 : 150) + ")")
                 
                 legendGroup.selectAll("myrect")
                     .data(allgroups)
                     .join("circle")
-                    .attr("cx", -30)
-                    .attr("cy", (d,i) => 10 + i*(size+5)) // 100 is where the first dot appears. 25 is the distance between dots
-                    .attr("r", 7)
+                    .attr("cx", (size === 'sm' ? -30 : -30))
+                    .attr("cy", (d,i) => i*(2.5 * dotSize)) // 100 is where the first dot appears. 25 is the distance between dots
+                    .attr("r", dotSize)
                     .style("fill", d =>  color(d))
                     .attr('stroke', '#000')
 
@@ -194,11 +199,12 @@ export default function BasicBubblesChart(config = {}) {
                     .data(allgroups)
                     .enter()
                     .append("text")
-                    .attr("x", -30 + size*.8)
-                    .attr("y", (d,i) =>  i * (size + 5) + (size/2)) // 100 is where the first dot appears. 25 is the distance between dots
+                    .attr("x", (size === 'sm' ? -20 : -20))
+                    .attr("y", (d,i) =>  i * (2.5 * dotSize) + (dotSize/2)) // 100 is where the first dot appears. 25 is the distance between dots
                     .style("fill", d => color(d))
                     .text(d => d)
                     .attr("text-anchor", "left")
+                    .attr('class', 'label-text-' + size)
                     .style("alignment-baseline", "middle")
             }
 

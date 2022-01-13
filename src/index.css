@@ -39,7 +39,7 @@ svg .tick > text {
 }
 
 .slices {
-  stroke-width: 4px;
+  stroke-width: 2px;
   stroke: #fff;
 }
 
@@ -79,4 +79,112 @@ svg .tick > text {
   border: 1px solid #545454;
   box-shadow: 1px 1px 4px 4px #444;
   color: #000;
+}
+
+.axis-sm .tick > text {
+  font-size: 12px;
+} 
+
+.axis-md .tick > text {
+  font-size: 14px;
+} 
+
+.axis-lg .tick > text {
+  font-size: 14px;
+} 
+
+.axis-xl .tick > text {
+  font-size: 16px;
+} 
+
+.axis-text-sm {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.axis-text-md {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.axis-text-lg {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.axis-text-xl {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.label-text-sm {
+  font-size: 12px;
+}
+
+.label-text-md {
+  font-size: 12px;
+}
+
+.label-text-lg {
+  font-size: 14px;
+}
+
+.label-text-xl {
+  font-size: 18px;
+}
+
+.title-text-sm {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title-text-md {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title-text-lg {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.title-text-xl {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hexbin-text-sm {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.hexbin-text-md {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hexbin-text-lg {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.hexbin-text-xl {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bubbles-label-sm {
+  font-size: 22px;
+}
+
+.bubbles-label-md {
+  font-size: 22px;
+}
+
+.bubbles-label-lg {
+  font-size: 26px;
+}
+
+.bubbles-label-xl {
+  font-size: 26px;
 }

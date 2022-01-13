@@ -24,6 +24,7 @@ export default function ChordDiagram(config = {}) {
         diffs = config.diffs,
         mouseover,
         mouseout,
+        size=config.size,
         defaultOpacity = config.defaultOpacity
 
     function chart(selection){
@@ -49,7 +50,8 @@ export default function ChordDiagram(config = {}) {
 
             drawChart = (resizing = false) =>{
                 let outerPadding = 20
-                let thickness = 20
+                let thickness = size !== 'sm' ? 20 : 10
+                
                 if (!width || !height) return;
                 chartArea
                     .datum(res)
@@ -91,17 +93,19 @@ export default function ChordDiagram(config = {}) {
                     .on('mouseover', mouseover)
                     .on('mouseout', mouseout)
 
-
-                chartArea.selectAll("text")
-                    .data(res.groups)
-                    .enter().append("text")
-                    .attr("dx", (d,i)=> diffs[i])
-                    .attr("dy", -45)
-                    .append("textPath")
-                        .attr("class", "label")
-                        .attr("xlink:href", function(d) { return "#group" + d.index; })
-                        .text(function(d, i) { return labels[i] })
-                        .style("fill",  "#000");
+                if (size !== "sm") {
+                    chartArea.selectAll("text")
+                        .data(res.groups)
+                        .enter().append("text")
+                        .attr("dx", (d,i)=> diffs[i])
+                        .attr("dy", -45)
+                        .append("textPath")
+                            .attr("class", "axis-text-" + size)
+                            .attr("xlink:href", function(d) { return "#group" + d.index; })
+                            .text(function(d, i) { return labels[i] })
+                            .style("fill",  "#000");
+                }
+                
 
                 var group = chartArea
                     .datum(res)
@@ -111,10 +115,11 @@ export default function ChordDiagram(config = {}) {
                     .enter()
                   
                 
+                let tVal = (size === 'sm' ? 10 : 5)
                 // // Add the ticks
                 group
                     .selectAll(".group-tick")
-                    .data(function(d) { return groupTicks(d, 5); })    // Controls the number of ticks: one tick each 25 here.
+                    .data(function(d) { return groupTicks(d, tVal); })    // Controls the number of ticks: one tick each 25 here.
                     .enter()
                     .append("g")
                       .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + (radius - outerPadding) + ",0)"; })
@@ -125,9 +130,9 @@ export default function ChordDiagram(config = {}) {
                 //   // Add the labels of a few ticks:
                 group
                     .selectAll(".group-tick-label")
-                    .data(function(d) { return groupTicks(d, 5); })
+                    .data(function(d) { return groupTicks(d, tVal); })
                     .enter()
-                    .filter(function(d) { return d.value % 5 === 0; })
+                    .filter(function(d) { return d.value % tVal === 0; })
                     .append("g")
                       .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + (radius - outerPadding) + ",0)"; })
                     .append("text")
@@ -136,7 +141,8 @@ export default function ChordDiagram(config = {}) {
                         .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180) translate(-16)" : null; })
                         .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
                         .text(function(d) { return d.value })
-                        .style("font-size", 12)
+                        .attr('class', 'label-text-sm')
+                        // .attr('class', 'label-text-' + size)
 
 
 

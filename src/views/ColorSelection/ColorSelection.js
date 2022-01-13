@@ -48,6 +48,9 @@ export const ColorSelection = () => {
 
     let divergent = ['#00429d', '#4771b2', '#73a2c6', '#a5d5d8', '#ffffe0', '#ffbcaf', '#f4777f', '#cf3759', '#93003a']
 
+    let stoplight = ['red', 'yellow', 'green']
+    let betterStoplight = ['#820900', '#e3cd07', '#1f911e']
+
     let qualitativeCards = schemeCategory10.map((d,i)=> 
         <ColorBox color={d} w="80px" key={"qual" + i}/>    
     )
@@ -62,6 +65,14 @@ export const ColorSelection = () => {
 
     let divergentCards = divergent.map((d,i)=> 
         <ColorBox color={d} w="80px" key={"diverg" + i}/>    
+    )
+
+    let stoplightCards = stoplight.map((d,i)=> 
+        <ColorBox color={d} w="80px" key={"stoplight" + i}/>    
+    )
+
+    let betterStoplightCards = betterStoplight.map((d,i)=> 
+        <ColorBox color={d} w="80px" key={"better-stoplight" + i}/>    
     )
 
     
@@ -147,6 +158,7 @@ export const ColorSelection = () => {
                     <SiteText 
                         type="standard"
                         text="Sequential palettes are sets of colors in either a single hue, or two hues, and are varying lightness across that spectrum. These are generally used for when the variable is numeric or has inherently ordered values. It can either be a continium, or discritized across the spectrum. Typically you will see that the lower values are associated with lighter colors, and higher values with darker. This is because we interpret the darker color as 'more filled in', which is expected with high value. "
+                        pb="15px"
                     />
 
                     <SiteText 
@@ -191,6 +203,39 @@ export const ColorSelection = () => {
                         {divergentCards}
                     </SimpleGrid>
                     
+                    <SiteText 
+                        type="subtitle"
+                        text="Stoplight Colors"
+                    />
+
+                    <SiteText 
+                        type="standard"
+                        text="There's a lot of usage of 'stoplight' colors, being red, yellow, green. These are a lot of times used because of the general connotations western culture assigned to the colors because of stoplights. Green is good/go, yellow is warning, and red is bad/stop. That's all fine but the palette itself isn't particularly pleasing to look at, the colors don't compliment each other well, and the full saturation colors are hard to look at, especially yellow. It is also not a color blind friendly palette."
+                    />
+
+                    <Center w="100%">
+                        <Box w={["100%", "33%"]}>
+                            <SimpleGrid columns={[3, 3, 3, 3]}>
+                                { stoplightCards}
+                            </SimpleGrid>
+                        </Box>
+                    </Center>
+
+                    <SiteText 
+                        type="standard"
+                        text="If you absolutely must use the 'stoplight' color scheme, consider one that that relies on different lightness and darkness of the hues in order to create enough variation in the colors, and to soften the hardness of the full saturation hues."
+                    />
+
+                    <Center w="100%">
+                        <Box w={["100%", "33%"]}>
+                            <SimpleGrid columns={[3, 3, 3, 3]}>
+                                { betterStoplightCards}
+                            </SimpleGrid>
+                        </Box>
+                    </Center>
+
+                    
+
                     <SiteText 
                         type="title"
                         text="Additional Tips for color selection and usage"
@@ -259,7 +304,7 @@ export const ColorSelection = () => {
                     />
 
                     <Center w="100%" py={["20px","20px","20px","20px"]}>
-                        <Image src={color_blind} w={["80%","80%","100%","100%"]}/>
+                        <Image src={color_blind} w={["80%","80%","50%","50%"]}/>
                     </Center>
 
                     <SiteText 

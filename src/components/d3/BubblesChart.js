@@ -33,8 +33,10 @@ export default function BubblesChart(config = {}) {
         showTooltip,
         moveTooltip,
         hideTooltip,
-        mode='log'
+        mode='log',
+        size = config.size
 
+        let bubbleScaler = size === 'sm' ? 0.5 : 1
 
         x = d3.scaleLog()
             .base(10)
@@ -47,7 +49,7 @@ export default function BubblesChart(config = {}) {
             .range([2, 40]);
 
         const area = d3.scaleLinear()
-            .range([25 * Math.PI, 3000 * Math.PI])
+            .range([25 * Math.PI, 3000 * Math.PI * bubbleScaler])
             .domain([2000,1400000000])
 
         // const continentColor = d3.scaleOrdinal(d3.schemeCategory10)
@@ -76,10 +78,10 @@ export default function BubblesChart(config = {}) {
             
             xAxisCall = chartArea.append('g')
                 // .attr('transform', 'translate(0,' + height + ')')
-                .attr('class', 'axis axis--x')
+                .attr('class', 'axis-' + size)
 
             yAxisCall = chartArea.append('g')
-                .attr('class', 'axis, axis--y')
+                .attr('class', 'axis-' + size)
 
             yLines = chartArea.append('g')
                 .attr('class', 'grid')
@@ -87,19 +89,19 @@ export default function BubblesChart(config = {}) {
             labels = chartArea.append('g')
 
             xLabel = labels.append("text")
-                .attr("font-size", "20px")
+                .attr('class', 'axis-text-' + size)
                 .attr("text-anchor", "middle")
                 .text("GDP Per Capita ($)")
             yLabel = labels.append("text")
                 .attr("transform", "rotate(-90)")
-                .attr("font-size", "20px")
+                .attr('class', 'axis-text-' + size)
                 .attr("text-anchor", "middle")
                 .text("Life Expectancy (Years)")
-            timeLabel = labels.append("text")
-                .attr("font-size", "40px")
-                .attr("opacity", "0.4")
-                .attr("text-anchor", "middle")
-                .text("1800")
+            // timeLabel = labels.append("text")
+            //     .attr('class', 'bubbles-label-' + size)
+            //     .attr("opacity", "0.4")
+            //     .attr("text-anchor", "middle")
+            //     .text("1800")
 
             tooltip = d3.select("#interactive-bubbles")
                 .append("div")
@@ -141,20 +143,23 @@ export default function BubblesChart(config = {}) {
                 const allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
 
                 const valuesToShow = config.valuesToShow
-                // const xCircle = 390
                 const xCircle = 0
-                // const xLabel = 440
-                const xLabel = 50
                 
+                const xLabel = size === 'sm' ? 25 : 50
+                const wOffset = size === 'sm' ? 30 : 50
+                const hOffset = size === 'sm' ? 30 : 50
+
+                const cirleOffset = size === 'sm' ? 50 : 100
+
                 let legend = chartArea.append('g')
-                    .attr('transform', 'translate(' + (width - 30) + "," + (0) + ")")
+                    .attr('transform', 'translate(' + (width - wOffset) + "," + (hOffset) + ")")
 
                 legend
                     .selectAll("legend")
                     .data(valuesToShow)
                     .join("circle")
                         .attr("cx", xCircle)
-                        .attr("cy", d => height - 100 - z(d))
+                        .attr("cy", d => height - cirleOffset - z(d))
                         .attr("r", d => z(d))
                         .style("fill", "none")
                         .attr("stroke", "black")
@@ -166,8 +171,8 @@ export default function BubblesChart(config = {}) {
                     .join("line")
                         .attr('x1', d => xCircle + z(d))
                         .attr('x2', xLabel)
-                        .attr('y1', d => height - 100 - z(d))
-                        .attr('y2', d => height - 100 - z(d))
+                        .attr('y1', d => height - cirleOffset - z(d))
+                        .attr('y2', d => height - cirleOffset - z(d))
                         .attr('stroke', 'black')
                         .style('stroke-dasharray', ('2,2'))
 
@@ -177,18 +182,69 @@ export default function BubblesChart(config = {}) {
                     .data(valuesToShow)
                     .join("text")
                         .attr('x', xLabel)
-                        .attr('y', d => height - 100 - z(d))
+                        .attr('y', d => height - cirleOffset - z(d))
                         .text( d => d/1000000)
-                        .style("font-size", 10)
+                        .style("font-size", size === 'sm' ? 8 : 10)
                         .attr('alignment-baseline', 'middle')
 
                 // Legend title
                 legend
                     .append("text")
                     .attr('x', xCircle)
-                    .attr("y", height - 100 +30)
+                    .attr("y", height - cirleOffset + (size === 'sm' ? 15 : 20))
                     .text("Population (M)")
                     .attr("text-anchor", "middle")
+                    .attr('class', 'label-text-' + size)
+
+                // const valuesToShow = config.valuesToShow
+                // // const xCircle = 390
+                // const xCircle = 0
+                // // const xLabel = 440
+                // const xLabel = 50
+                
+                // let legend = chartArea.append('g')
+                //     .attr('transform', 'translate(' + (width - 30) + "," + (0) + ")")
+
+                // legend
+                //     .selectAll("legend")
+                //     .data(valuesToShow)
+                //     .join("circle")
+                //         .attr("cx", xCircle)
+                //         .attr("cy", d => height - 100 - z(d))
+                //         .attr("r", d => z(d))
+                //         .style("fill", "none")
+                //         .attr("stroke", "black")
+
+                // // Add legend: segments
+                // legend
+                // .selectAll("legend")
+                //     .data(valuesToShow)
+                //     .join("line")
+                //         .attr('x1', d => xCircle + z(d))
+                //         .attr('x2', xLabel)
+                //         .attr('y1', d => height - 100 - z(d))
+                //         .attr('y2', d => height - 100 - z(d))
+                //         .attr('stroke', 'black')
+                //         .style('stroke-dasharray', ('2,2'))
+
+                // // Add legend: labels
+                // legend
+                // .selectAll("legend")
+                //     .data(valuesToShow)
+                //     .join("text")
+                //         .attr('x', xLabel)
+                //         .attr('y', d => height - 100 - z(d))
+                //         .text( d => d/1000000)
+                //         .style("font-size", 10)
+                //         .attr('alignment-baseline', 'middle')
+
+                // // Legend title
+                // legend
+                //     .append("text")
+                //     .attr('x', xCircle)
+                //     .attr("y", height - 100 +30)
+                //     .text("Population (M)")
+                //     .attr("text-anchor", "middle")
             }
             updateScales = (resizing = false) => {
                 if (mode === 'log'){
@@ -212,14 +268,14 @@ export default function BubblesChart(config = {}) {
                 y.range([height, 0])
 
                 xLabel
-                    .attr("y", 70)
+                    .attr("y", size === 'sm' ? 45 : 70)
                     .attr("x", 0)
                 yLabel
-                    .attr("y", -70)
-                    .attr("x", -170)
-                timeLabel
-                    .attr("y", height - 10)
-                    .attr("x", width - 40)
+                    .attr("y", size === 'sm' ? -40 : -70)
+                    .attr("x", size === 'sm' ? -100 : -170)
+                // timeLabel
+                //     .attr("y", height - 10)
+                //     .attr("x", width - 20)
 
                 x_axis.scale(x)
                 y_axis.scale(y)
@@ -276,7 +332,7 @@ export default function BubblesChart(config = {}) {
 
                 firstRender = false;
 
-                timeLabel.text(year)
+                // timeLabel.text(year)
             }
         });
     }

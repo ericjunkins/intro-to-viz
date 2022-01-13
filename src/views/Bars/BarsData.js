@@ -99,5 +99,11 @@ export const config = {
         orientation: 'vertical',
         // colors: ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78"],
         colors: ["#084081", "#0863a7", "#42a6cc", "#8fd4bd"]
+    },
+    margins: {
+        sm: { top: 20, bottom: 50, left: 60, right: 20},
+        md: { top: 20, bottom: 50, left: 60, right: 20},
+        lg: { top: 50, bottom: 150, left: 100, right: 50},
+        xl: { top: 50, bottom: 150, left: 100, right: 50},
     }
 }

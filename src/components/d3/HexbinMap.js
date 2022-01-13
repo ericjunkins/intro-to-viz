@@ -19,7 +19,9 @@ export default function HexbinMap(config = {}) {
         drawLegend,
         getBinnedColors,
         bins = config.bins,
-        colors = config.colors
+        colors = config.colors,
+        position = config.position,
+        size= config.size
 
         let color = d3.scaleLinear()
             .domain([-0.2, 0.2])
@@ -28,8 +30,8 @@ export default function HexbinMap(config = {}) {
     
 
         var projection = d3.geoMercator()
-            .scale(650) // This is the zoom
-            .translate([1600, 940]); // You have to play with these values to center your map
+            .scale(position.scale) // This is the zoom
+            .translate(position.translate); // You have to play with these values to center your map
 
         var path = d3.geoPath()
             .projection(projection)
@@ -79,8 +81,7 @@ export default function HexbinMap(config = {}) {
                     .text(function(d){ return d.properties.iso3166_2})
                     .attr("text-anchor", "middle")
                     .attr("alignment-baseline", "central")
-                    .style("font-size", 14)
-                    .style('font-weight', 500)
+                    .attr('class', 'hexbin-text-' + size)
                     .style("fill", d=> {
                         return (d.properties.affiliation <= 0.03 && d.properties.affiliation >= -0.03 ? "#000" : "#fff") 
                     })
@@ -91,10 +92,9 @@ export default function HexbinMap(config = {}) {
             drawLegend = () => {
                 chartArea.append('g').append('text')
                     .attr('text-anchor', 'middle')
-                    .attr('font-size', 30)
-                    .attr('font-weight', 500)
+                    .attr('class', 'title-text-' + size)
                     .attr('x', width/2 + margin.left)
-                    .attr('y', 80)
+                    .attr('y', 100)
                     .text('2020 Presedential Election Results')
                 
                 let legend = chartArea.append('g')
@@ -109,7 +109,7 @@ export default function HexbinMap(config = {}) {
                     .domain([-0.2, 0.2])
                     .range([width * padding, width * (1 - padding)])
 
-                var rectH = 30
+                var rectH = size === 'sm' ? 15 : 30
                 linearGradient
                     .attr("x1", "0%")
                     .attr("y1", "0%")
@@ -171,25 +171,22 @@ export default function HexbinMap(config = {}) {
                     .attr('x', x(0.2) )
                     .attr('y', rectH + 30)
                     .attr('text-anchor', 'end')
-                    .attr('font-size', 14)
-                    .attr('font-weight', 500)
+                    .attr('class', 'hexbin-text-' + size)
                     .text('Very Republican')
 
                 legend.append('text')
                     .attr('x', x(-0.2) - 3)
                     .attr('y', rectH + 30)
                     .attr('text-anchor', 'start')
-                    .attr('font-size', 14)
-                    .attr('font-weight', 500)
+                    .attr('class', 'hexbin-text-' + size)
                     .text('Very Democratic')
                     
                 legend.append('text')
                     .attr('x', x(0))
                     .attr('y', rectH + 30)
+                    .attr('class', 'hexbin-text-' + size)
                     .attr('text-anchor', 'middle')
-                    .attr('font-size', 14)
-                    .attr('font-weight', 500)
-                    .text('Extremely Close (<0.3%)')
+                    .text('Close (<0.3%)')
             }
         });
     }

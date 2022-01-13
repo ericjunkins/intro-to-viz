@@ -3,6 +3,12 @@ export const config = {
         labels: ['Summer Berry CO', 'Denver', 'Reddog', 'Newforrest', "Haygrove"],
         diffs: [325, 350, 115, 90, 70],
         defaultOpacity: 0.65
+    },
+    margins: {
+        sm: { top: 0, bottom: 0, left: 0, right: 0},
+        md: { top: 0, bottom: 0, left: 0, right: 0},
+        lg: { top: 0, bottom: 0, left: 0, right: 0},
+        xl: { top: 0, bottom: 0, left: 0, right: 0},
     }
 }
 

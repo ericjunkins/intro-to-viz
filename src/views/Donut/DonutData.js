@@ -36,5 +36,11 @@ export const config = {
         margin: { top: 50, bottom: 50, left: 50, right: 50},
         type: "overloaded",
         colors: ["#1776b6", "#ff7f00", "#24a121", "#d8241f", "#9564bf", "#8d5649", "#e574c3","#7f7f7f","#bcbf00","#00bed0"]
+    },
+    margins: {
+        sm: { top: 0, bottom: 0, left: 0, right: 100},
+        md: { top: 0, bottom: 0, left: 0, right: 100},
+        lg: { top: 0, bottom: 0, left: 0, right: 0},
+        xl: { top: 50, bottom: 50, left: 50, right: 50},
     }
 }

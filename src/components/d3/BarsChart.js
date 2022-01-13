@@ -25,7 +25,8 @@ export default function BarsChart(config = {}) {
         x_axis,
         y_axis,
         drawVertical,
-        drawHorizontal
+        drawHorizontal,
+        size=config.size
 
 
         x = d3.scaleBand().padding(0.08)
@@ -55,10 +56,10 @@ export default function BarsChart(config = {}) {
             
             xAxisCall = chartArea.append('g')
                 // .attr('transform', 'translate(0,' + height + ')')
-                .attr('class', 'axis axis--x')
+                .attr('class', 'axis-' + size)
 
             yAxisCall = chartArea.append('g')
-                .attr('class', 'axis, axis--y')
+            .attr('class', 'axis-' + size)
 
             yLines = chartArea.append('g')
                 .attr('class', 'grid')
@@ -67,12 +68,14 @@ export default function BarsChart(config = {}) {
 
             yLabel = labels.append('text')
                 .attr('transform', 'rotate(-90)')
-                .attr('y', -75)
-                .attr('class', 'label')
+                .attr('y', (size === 'sm' ? -50 : -75))
+                .attr('class', 'label-text-' + size)
+                .attr('text-anchor', 'middle')
 
             xLabel = labels.append('text')
-                .attr('y', 75)
-                .attr('class', 'label')
+                .attr('y', (size === 'sm' ? 40 : 75))
+                .attr('class', 'label-text-' + size)
+                .attr('text-anchor', 'middle')
             
 
             
@@ -86,6 +89,12 @@ export default function BarsChart(config = {}) {
                     y = d3.scaleLinear()
                         .domain([0, d3.max(data, d=> d.value)* 1.2 ])
                         .range([height, 0])
+                        
+                    x_axis.scale(x)
+                    y_axis.scale(y)
+
+                    
+
                 } else if (config.orientation === 'horizontal'){
                     let sorted = data.sort((a, b)=> d3.ascending( a.value, b.value))
                     y = d3.scaleBand()
@@ -96,11 +105,12 @@ export default function BarsChart(config = {}) {
                     x = d3.scaleLinear()
                         .domain([0, d3.max(data, d=> d.value) ])
                         .range([0, width])
+                        
+                    x_axis.scale(x).ticks(5)
+                    y_axis.scale(y)
                 }
                 
 
-                x_axis.scale(x)
-                y_axis.scale(y)
                 xAxisCall
                     .attr('transform', 'translate(0,' + height + ')')
                     .call(x_axis)

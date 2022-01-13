@@ -18,7 +18,8 @@ export default function DonutChart(config = {}) {
         firstRender = true,
         pie,
         radius,
-        drawLegend
+        drawLegend,
+        size = config.size
 
         pie = d3.pie()
             .value(function(d){ return d.value})
@@ -45,6 +46,8 @@ export default function DonutChart(config = {}) {
             }        
 
             drawChart = (resizing = false) =>{
+                let thickness = size === 'sm' ? 40 : 100
+
                 if (!width || !height) return;
                 let donutData = pie(data)
                 let slices = chartArea.selectAll('.slices')
@@ -54,7 +57,7 @@ export default function DonutChart(config = {}) {
                     .append('path')
                     .attr('class', 'slices')
                     .attr('d', d3.arc()
-                        .innerRadius(radius - 100)
+                        .innerRadius(radius - thickness)
                         .outerRadius(radius)
                     )
                     .attr('fill', d=> colors(d.data.name))
@@ -64,17 +67,18 @@ export default function DonutChart(config = {}) {
 
             drawLegend = () => {
                 if (!firstRender) return; 
+                let rectSize = (size === 'sm' ? 14 : 30)
+                const wOffset = size === 'sm' ? 20 : 60
                 var legend = chartArea.append('g')
-                    .attr('transform', 'translate(' + (radius + 60) + "," + (-radius) + ")")
+                    .attr('transform', 'translate(' + (radius + wOffset) + "," + (- rectSize * 1.5 * data.length/2) + ")")
                 chartArea.append('text')
                     .attr('x', 0)
                     .attr('y', 0)
-                    .attr('font-size', "50px")
-                    .attr('font-weight', 700)
+                    .attr('class', 'title-text-' + size)
                     .text(d3.sum(data, d=> d.value))
                     .attr('text-anchor', 'middle')
                     .attr('dominant-baseline', 'middle')
-                let rectSize = 30
+
                 data.forEach(function(d, i){
                     let tmp = legend.append('g')
                         .attr('transform', 'translate(0,' + (i * (rectSize * 1.5)) + ")")
@@ -90,7 +94,7 @@ export default function DonutChart(config = {}) {
                     tmp.append('text')
                         .attr('x', rectSize + 10)
                         .attr('y', rectSize /2)
-                        .attr('class', 'legend-text')
+                        .attr('class', 'label-text-' + size)
                         .attr('dominant-baseline', 'middle')
                         .text(d.name)
 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Box, Center, Text, VStack, HStack, Image} from "@chakra-ui/react";
+import {Box, Center, Text, VStack, HStack, Image, Spinner} from "@chakra-ui/react";
 import { Bars } from "./Bars/Bars";
 import { Donut } from "./Donut/Donut";
 import { Radar } from "./Radar/Radar";
@@ -59,6 +59,7 @@ export const Main = () => {
             </Text>
         </Center>
         <Center w="100%" py={["50px","50px","150px","150px"]} bg="#fafafa">
+          {size.width ? 
           <VStack 
             w={["100%", "100%", "100%", "1000px"]} 
             textAlign="start" 
@@ -130,17 +131,20 @@ export const Main = () => {
                 text="There are many different data visualizations, and picking the right one is important. There are bound to be multiple different methods of conveying your information, and you need to be able to pick one that displays the message you're intending, clearly and concisely. This site will explore some of the most commonly used data visualizations, their uses, and some of their pit-falls as well as what you should avoid doing. It also will go into some basic color usage, and how to select a meaningful color palette that will look nice together."
               />
             </Box>
-
-            <Radar />
-            {/* <Bars />
-            <Donut />
-            <BasicScatter />
-            <Treemap />
-            <WordCloud />
-            <Hexbin />
-            <Chord />
-            <Scatter /> */}
+            <Bars size={size}/>
+            <Donut size={size}/>
+            <BasicScatter size={size}/>
+            <Treemap size={size}/>
+            <Radar size={size}/>
+            <Hexbin size={size}/>
+            <WordCloud size={size}/>
+            <Chord size={size}/>
+            <Scatter size={size}/>
           </VStack>
+          :
+          <Spinner />
+          }
+
         </Center>
         <ColorSelection />
       </Box>

@@ -59,5 +59,18 @@ export const config = {
         bins: [-0.2, -0.12, -0.06, -0.03, 0.03, 0.06, 0.12, 0.2],
         colors: ["#003cff", "#ab001d"],
         nuetral: "#f0be73"
-    }
+    },
+    margins: {
+        sm: { top: 0, bottom: 50, left: 0, right: 0},
+        md: { top: 0, bottom: 0, left: 0, right: 0},
+        lg: { top: 0, bottom: 0, left: 0, right: 0},
+        xl: { top: 50, bottom: 50, left: 50, right: 50},
+    },
+
+    position: {
+        sm: { scale: 250, translate: [620, 440]}, 
+        md: { scale: 650, translate: [1600, 940]}, 
+        lg: { scale: 650, translate: [1600, 940]}, 
+        xl: { scale: 650, translate: [1600, 940]} 
+    },
 }
