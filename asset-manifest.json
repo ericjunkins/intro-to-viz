@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/intro-to-viz/static/css/main.8a17c04d.css",
-    "main.js": "/intro-to-viz/static/js/main.ca287726.js",
+    "main.css": "/intro-to-viz/static/css/main.069ff01f.css",
+    "main.js": "/intro-to-viz/static/js/main.dfc64edc.js",
     "static/media/cattle_consumption.png": "/intro-to-viz/static/media/cattle_consumption.b1330c6c17a94954735f.png",
     "static/media/Minard.png": "/intro-to-viz/static/media/Minard.fbcc24809bd37139e5be.png",
     "static/media/cholera_outbreak.jpg": "/intro-to-viz/static/media/cholera_outbreak.c31f7e291ea598b3667f.jpg",
+    "static/media/connections_chart.PNG": "/intro-to-viz/static/media/connections_chart.944a3ffe28beaa1332e4.PNG",
     "static/media/coolors_co.PNG": "/intro-to-viz/static/media/coolors_co.2060ae8b3dc218918c88.PNG",
     "static/media/texas-heatmap.png": "/intro-to-viz/static/media/texas-heatmap.dc6528cf771e99f3f9d9.png",
     "static/media/wordcloud.png": "/intro-to-viz/static/media/wordcloud.0bbfe65a5482f1ed7bad.png",
@@ -17,11 +18,11 @@
     "static/media/treemap.png": "/intro-to-viz/static/media/treemap.fcef48cfa873aaecb5de.png",
     "static/media/data_color_picker.png": "/intro-to-viz/static/media/data_color_picker.86b4da3ec0eafc43d3d6.png",
     "index.html": "/intro-to-viz/index.html",
-    "main.8a17c04d.css.map": "/intro-to-viz/static/css/main.8a17c04d.css.map",
-    "main.ca287726.js.map": "/intro-to-viz/static/js/main.ca287726.js.map"
+    "main.069ff01f.css.map": "/intro-to-viz/static/css/main.069ff01f.css.map",
+    "main.dfc64edc.js.map": "/intro-to-viz/static/js/main.dfc64edc.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a17c04d.css",
-    "static/js/main.ca287726.js"
+    "static/css/main.069ff01f.css",
+    "static/js/main.dfc64edc.js"
   ]
 }
