@@ -8,8 +8,13 @@ import TreemapImage from "./treemap.png";
 import {TextBox} from "./../../components/TextBox";
 import {SiteText} from "./../../components/SiteText";
 
+import { TreemapChart } from "../../components/d3/TreemapChart";
+
+import {data, config} from "./TreemapConfig";
+
 export const Treemap = () => {
-    const basicChord = useRef();
+    const basicTreemapRef = useRef();
+
 
     return (
         <Center w="100%" pt="20px" textAlign="start">
@@ -23,7 +28,9 @@ export const Treemap = () => {
                             />
                         </TextBox>
                         <Box w="100%" h={["400px", "800px"]} py="20px">
-                            <Image src={TreemapImage} boxSize="100%"/>
+                            {/* <Image src={TreemapImage} boxSize="100%"/> */}
+                            <D3Container ref={basicTreemapRef} data={data.basic} id="basic-treemap" viz={TreemapChart} config={config.basic}/>
+
                         </Box>
                     </Box>
                 </CardContainer>
