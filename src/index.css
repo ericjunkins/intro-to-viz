@@ -186,3 +186,28 @@ svg .tick > text {
 .bubbles-label-xl {
   font-size: 26px;
 }
+
+.highlight {
+  opacity: 1 !important;
+  stroke: red !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.8 !important;
+}
+
+#voronoi-group {
+  pointer-events: all;
+}
+
+.voronoi {
+  fill: none;
+  stroke: none;
+  stroke-width: 1px;
+}
+
+/* shadow trick from bl.ocks.org */
+#tooltip {
+  font-size: 10pt;
+  font-weight: 900;
+  fill: white;
+  text-shadow: 1px 1px 0 #252525, 1px -1px 0 #252525, -1px 1px 0 #252525, -1px -1px 0 #252525;
+}

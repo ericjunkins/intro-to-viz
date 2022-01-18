@@ -100,7 +100,10 @@ export const ColorSelection = () => {
                         type="standard"
                         text="Color can make or break a visualization. It can either guide the reader to the information in clear and concise ways, or be incredibly distracting and cumbersome. Take for instance this map of Texas. All the data you need is included in this viz, but it is still extremely hard to interpret because of the colors used."
                     />
-                    <Image src={texas} py="40px"/>
+                    <Center w="100%">
+                        <Image src={texas} py="40px" w={["100%", "75%"]}/>
+                    </Center>
+                    
                     
                     <Text py="20px" fontSize={["14px", "14px", "16px", "18px"]}>
                         Rather than go through a bunch of examples on my own, it's better to look at this source of 

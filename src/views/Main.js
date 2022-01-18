@@ -17,6 +17,7 @@ import cattle_consumption from "./../assets/cattle_consumption.png"
 import { ColorSelection } from "./ColorSelection/ColorSelection";
 
 import {SiteText} from "./../components/SiteText";
+import { Maps } from "./Maps/Maps";
 
 export const Main = () => {
     const size = useWindowSize();
@@ -136,7 +137,9 @@ export const Main = () => {
             <BasicScatter size={size}/>
             <Treemap size={size}/>
             <Radar size={size}/>
+            <Maps size={size}/>
             <Hexbin size={size}/>
+            {/* <ConnectionMap size={size} /> */}
             <WordCloud size={size}/>
             <Chord size={size}/>
             <Scatter size={size}/>
