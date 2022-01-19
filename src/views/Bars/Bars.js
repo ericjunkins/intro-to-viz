@@ -48,7 +48,7 @@ export const Bars = ({size}) => {
                     <TextBox>
                         <SiteText 
                             type="standard"
-                            text="Let's start with one of the most standard data visualizations everyone is familiar with, the Bar chart. Bar Charts are good for, Numberical comparisons, catagorical data, and ranking. Humans are very good at making direct comparisons of relative sizes from one bar to another."
+                            text="Let's start with one of the most standard data visualizations everyone is familiar with, the Bar chart. Bar Charts are good for, numerical comparisons, categorical data, and ranking. Humans are very good at making direct comparisons of relative sizes from one bar to another."
                         />
                     </TextBox>
                     <Box >
@@ -62,7 +62,7 @@ export const Bars = ({size}) => {
                     <TextBox>
                         <SiteText 
                             type="standard"
-                            text="In order for this visualization to be effective there ideally are 7 or less total number of values to display. See what happens when we overload the number of items to display here, we've lost a lot of ability to descern individual comparisons, and only tend to see the overal trend and average of the data."
+                            text="In order for this visualization to be effective there ideally are 7 or less total number of values to display. See what happens when we overload the number of items to display here, we've lost a lot of ability to decern individual comparisons, and only tend to see the overall trend and average of the data."
                         />
                     </TextBox>
                     <Box w="100%" h={["400px", "800px"]}>
@@ -96,7 +96,7 @@ export const Bars = ({size}) => {
                     <TextBox>
                         <SiteText 
                             type="standard"
-                            text="In some instances also consider using a Lolipop chart instead of bars. It is for essentially the same data/uses, but it can be easier to discern when there are lots of data that are very close to either other in values. Also when using Lolipop chart always make sure to sort your data, otherwise it looks very messy."
+                            text="In some instances also consider using a Lollipop chart instead of bars. It is for essentially the same data/uses, but it can be easier to discern when there are lots of data that are very close to either other in values. Also when using Lollipop chart always make sure to sort your data, otherwise it looks very messy."
                         />
                     </TextBox>
                     <Box w="100%"  h={["400px", "800px"]}>
