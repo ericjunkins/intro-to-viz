@@ -48,8 +48,12 @@ export const ColorSelection = () => {
 
     let divergent = ['#00429d', '#4771b2', '#73a2c6', '#a5d5d8', '#ffffe0', '#ffbcaf', '#f4777f', '#cf3759', '#93003a']
 
-    let stoplight = ['red', 'yellow', 'green']
-    let betterStoplight = ['#820900', '#e3cd07', '#1f911e']
+    let stoplight = ['green', 'yellow', 'red']
+    let betterStoplight = ['#1f911e', '#e3cd07', '#820900']
+
+    // let alt1 = ["#e59500", "#840032", "#002642"]
+    let alt1 = ["#ffa600", "#bc5090", "#003f5c"]
+
 
     let qualitativeCards = schemeCategory10.map((d,i)=> 
         <ColorBox color={d} w="80px" key={"qual" + i}/>    
@@ -72,6 +76,10 @@ export const ColorSelection = () => {
     )
 
     let betterStoplightCards = betterStoplight.map((d,i)=> 
+        <ColorBox color={d} w="80px" key={"better-stoplight" + i}/>    
+    )
+
+    let alt1Cards = alt1.map((d,i)=> 
         <ColorBox color={d} w="80px" key={"better-stoplight" + i}/>    
     )
 
@@ -223,6 +231,19 @@ export const ColorSelection = () => {
                             </SimpleGrid>
                         </Box>
                     </Center>
+
+                    {/* <SiteText 
+                        type="standard"
+                        text="If you absolutely must use the 'stoplight' color scheme, consider one that that relies on different lightness and darkness of the hues in order to create enough variation in the colors, and to soften the hardness of the full saturation hues."
+                    />
+
+                    <Center w="100%">
+                        <Box w={["100%", "33%"]}>
+                            <SimpleGrid columns={[3, 3, 3, 3]}>
+                                { alt1Cards}
+                            </SimpleGrid>
+                        </Box>
+                    </Center> */}
 
                     <SiteText 
                         type="standard"

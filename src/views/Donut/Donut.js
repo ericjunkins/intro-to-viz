@@ -7,6 +7,7 @@ import DonutChart from "./../../components/d3/DonutChart";
 import {data, config} from "./DonutData";
 
 import pie_3d from "./../../assets/3d_pie_chart.png";
+import comparison from "./../../assets/pie-vs-bar-compare.png";
 
 import {TextBox} from "./../../components/TextBox";
 import {SiteText} from "./../../components/SiteText";
@@ -36,13 +37,7 @@ export const Donut = ({size}) => {
                             text="The Donut/Pie Chart are also an extremely common visualization tool that everyone has probably encountered. Donut Charts are very good for displaying parts of the whole, relative comparisons, and having a compact visualization. In practice bar charts and donut charts contain basically the same data"
                         />
                     </TextBox>
-                    <Box my="20px"/>
-                    <TextBox>
-                        <SiteText 
-                            type="standard"
-                            text="In practice bar charts and donut charts contain basically the same data, however they are organized very differently. When choosing between them you should ask yourself, what is more important, understanding the rough percentage of whole a value is, or being able to make pairwise comparisons."
-                        />
-                    </TextBox>
+
                     <Box w="100%" h={["400px","800px"]}>
                         <D3Container ref={basicDonutRef} data={data.basic} id="basic-donut" viz={DonutChart} config={config.basic}/>
                     </Box>
@@ -58,13 +53,9 @@ export const Donut = ({size}) => {
 
                     <Box borderBottom="3px solid #ababab" mb="20px"/>
 
-                    <Text fontSize="24px" fontWeight={700}>
+                    <Text fontSize="22px" fontWeight={600} pb="20px">
                         3-D Pie/Donuts/Bars
                     </Text>
-
-                    <Center py="40px">
-                        <Image src={pie_3d} w={["75%", "50%"]}/>
-                    </Center>
 
                     <TextBox>
                         <SiteText 
@@ -72,6 +63,30 @@ export const Donut = ({size}) => {
                             text="The appropriate time to use a 3-D pie/donut/bar chart is..... NEVER. It is never an appropriate visualization, it has no point in this world. All it does is take a perfectly good visualization, give it isometric perspective which skews how you can interpret the data, and then adds a dimension of space with no extra dimension of data. It is trash and don't ever use them. "
                         />
                     </TextBox>
+
+                    <Center py="40px">
+                        <Image src={pie_3d} w={["75%", "50%"]}/>
+                    </Center>
+
+
+
+                    <Box borderBottom="3px solid #ababab" mb="20px" mt="50px"/>
+
+                    <Text fontSize="22px" fontWeight={600}  pb="20px">
+                        Bar Chart vs Donut Chart
+                    </Text>
+
+                    <TextBox>
+                        <SiteText 
+                            type="standard"
+                            text="In practice bar charts and donut charts contain basically the same data, however they are organized very differently. When choosing between them you should ask yourself, what is more important, understanding the rough percentage of whole a value is, or being able to make pairwise comparisons."
+                        />
+                    </TextBox>
+
+                    <Center w="100%" py={["10px","10px","30px","30px"]}>
+                        <Image src={comparison} border="1px solid #ababab"/>
+                    </Center>
+
                 </CardContainer>
             </Box>
         </Center>

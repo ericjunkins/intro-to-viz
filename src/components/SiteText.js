@@ -1,5 +1,26 @@
 import React from "react";
-import {Text} from "@chakra-ui/react";
+import {Text, Box, Flex} from "@chakra-ui/react";
+
+export const Interactivity = () => {
+    return (
+        <Flex ml={"20px", "50px"} pt={["20px", "20px"]}>
+            <Text 
+                color="#42a6cc" 
+                fontWeight={600} 
+                fontSize={["18px", "22px"]} 
+                py="5px" 
+                px="10px"
+                borderRadius="10px"
+                border="1px solid #545454" bg="#fff"
+                boxShadow="2px 2px 4px 2px #252525"
+            >
+                Interactive
+            </Text>
+        </Flex>
+           
+        
+    )
+}
 
 export const SiteText = ({text, type='standard', py, px, pt, pb}) => {
     let fs;

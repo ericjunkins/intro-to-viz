@@ -129,7 +129,7 @@ export default function StackedBarsChart(config = {}) {
                     .attr('y', 10)
                     .attr('dominant-baseline', 'middle')
                     .attr('class', 'legend-text')
-                    .text('Pick')
+                    .text('Hit')
 
                 l2.append('rect')
                     .attr('x', 0)
@@ -157,7 +157,7 @@ export default function StackedBarsChart(config = {}) {
                     .attr('y', 10)
                     .attr('dominant-baseline', 'middle')
                     .attr('class', 'legend-text')
-                    .text('Backoff')
+                    .text('Crush')
 
                 l4.append('rect')
                     .attr('x', 0)
