@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/intro-to-viz/static/css/main.069ff01f.css",
-    "main.js": "/intro-to-viz/static/js/main.0746f7ca.js",
+    "main.js": "/intro-to-viz/static/js/main.54b5eb00.js",
     "static/media/cattle_consumption.png": "/intro-to-viz/static/media/cattle_consumption.b1330c6c17a94954735f.png",
     "static/media/Minard.png": "/intro-to-viz/static/media/Minard.fbcc24809bd37139e5be.png",
     "static/media/cholera_outbreak.jpg": "/intro-to-viz/static/media/cholera_outbreak.c31f7e291ea598b3667f.jpg",
@@ -27,10 +27,10 @@
     "static/media/diverging_stacked.PNG": "/intro-to-viz/static/media/diverging_stacked.41f28322adf50641ff32.PNG",
     "index.html": "/intro-to-viz/index.html",
     "main.069ff01f.css.map": "/intro-to-viz/static/css/main.069ff01f.css.map",
-    "main.0746f7ca.js.map": "/intro-to-viz/static/js/main.0746f7ca.js.map"
+    "main.54b5eb00.js.map": "/intro-to-viz/static/js/main.54b5eb00.js.map"
   },
   "entrypoints": [
     "static/css/main.069ff01f.css",
-    "static/js/main.0746f7ca.js"
+    "static/js/main.54b5eb00.js"
   ]
 }
