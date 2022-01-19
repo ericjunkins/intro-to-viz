@@ -8,7 +8,7 @@ import {data, config} from "./RadarData";
 
 
 import {TextBox} from "./../../components/TextBox";
-import {SiteText} from "./../../components/SiteText";
+import {SiteText, Interactivity} from "./../../components/SiteText";
 
 import { getSize } from "./../../helpers/FontSizes";
 
@@ -29,6 +29,7 @@ export const Radar = ({size}) => {
                                 text="The Radar (and sometimes called Spider) chart is a visualization used to compare two or more items on various features or characteristics. It is important in this visualization, unlike the others so far, to use very contrasting colors, as segments will overlap and this helps descern the information. The radar chart also usually is easier to understand with a small bit of interaction built in. "
                             />
                         </TextBox>
+                        <Interactivity />
                         <Box w="100%" h={["350px","800px"]}>
                             <D3Container ref={basicRadarRef} data={data.basic} id="basic-radar" viz={RadarChart} config={config.basic}/>
                         </Box>

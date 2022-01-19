@@ -12,7 +12,7 @@ import {FaPlay, FaPause} from "react-icons/fa";
 import {world_data} from "./ScatterData";
 
 import {TextBox} from "./../../components/TextBox";
-import {SiteText} from "./../../components/SiteText";
+import {SiteText, Interactivity} from "./../../components/SiteText";
 
 import { getSize } from "./../../helpers/FontSizes";
 

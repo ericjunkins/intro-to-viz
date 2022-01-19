@@ -7,7 +7,7 @@ import BubblesMapChart from "./../../components/d3/BubblesMap";
 import {data, config} from "./MapConfig";
 
 import {TextBox} from "./../../components/TextBox";
-import {SiteText} from "./../../components/SiteText";
+import {SiteText, Interactivity} from "./../../components/SiteText";
 
 import connected_map from "./../../assets/connections_chart.PNG"
 
@@ -88,6 +88,7 @@ export const Maps = ({size}) => {
                             />
                         </TextBox>
 
+                        <Interactivity />
                         {colorMapLoaded ? 
                             <Box w="100%" h={["400px", "800px"]} py="20px">
                                 <D3Container ref={colorMapRef} data={colorMapData} id="color-map" viz={ColorMapChart} config={config.colorMap} />
@@ -118,6 +119,7 @@ export const Maps = ({size}) => {
                                 text="Another common map visualization is a bubbles overlay map, where data is overlaied geographically onto the lat/long coords of the location, and then bubbles size encodes the data value. Remember when using this that your variable needs to be encoded to the area of the bubble, not the radius. Here we show a dataset about where surfers live, and where theyre tweeting about, and color corresponds the their home continent, location on the map is where they tweet about."
                             />
                         </TextBox>
+                        <Interactivity />
                         {bubblesMapLoaded ? 
                             <Box w="100%" h={["400px", "800px"]} py="20px">
                                 <D3Container ref={bubblesMapRef} data={bubblesMapData} id="bubbles-map" viz={BubblesMapChart} config={config.bubblesMap} />
