@@ -15,11 +15,11 @@ const Navbar = ({size}) => {
         {name: "Intro", link: "/intro-to-viz/#intro"},
         {name: "Bar", link: "/intro-to-viz/#bar"},
         {name: "Donut", link: "/intro-to-viz/#donut"},
+        {name: "Wordcloud", link: "/intro-to-viz/#wordcloud"},
         {name: "Scatter", link: "/intro-to-viz/#scatter"},
         {name: "Treemap", link: "/intro-to-viz/#treemap"},
         {name: "Radar", link: "/intro-to-viz/#radar"},
         {name: "Hexbin Map", link: "/intro-to-viz/#hexbin"},
-        {name: "Wordcloud", link: "/intro-to-viz/#wordcloud"},
         {name: "Chord", link: "/intro-to-viz/#chord"},
         {name: "Interactivity", link: "/intro-to-viz/#interactivity"},
         {name: "Colors", link: "/intro-to-viz/#colors"}

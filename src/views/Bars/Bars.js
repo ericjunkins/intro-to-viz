@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import {Box, Center, Text, UnorderedList, ListItem, List, Stack} from "@chakra-ui/react";
+import {Box, Center, Text, UnorderedList, ListItem, List, Image} from "@chakra-ui/react";
 import { CardContainer } from "../../components/CardContainer";
 import {D3Container} from "./../../components/D3Container";
 import BarsChart from "../../components/d3/BarsChart";
@@ -11,6 +11,9 @@ import {TextBox} from "./../../components/TextBox";
 import {SiteText} from "./../../components/SiteText";
 
 import { getSize } from "./../../helpers/FontSizes";
+
+import diverging_stacked from "./../../assets/diverging_stacked.PNG";
+import music_revenue from "./../../assets/music_revenue.PNG";
 
 export const Bars = ({size}) => {
     const verticalRef = useRef();
@@ -83,6 +86,13 @@ export const Bars = ({size}) => {
                     <Box w="100%"  h={["500px", "1000px"]}>
                         <D3Container ref={horizontalRef} data={data["vertical-overload"]} id="horizontal" viz={BarsChart} config={config["horizontal"]}/>
                     </Box>
+
+                    <SiteText 
+                        type="subtitle"
+                        text="Lolipop Chart"
+                    />
+                    <Box my="20px"/>
+
                     <TextBox>
                         <SiteText 
                             type="standard"
@@ -92,6 +102,12 @@ export const Bars = ({size}) => {
                     <Box w="100%"  h={["400px", "800px"]}>
                         <D3Container ref={lolipopRef} data={data['vertical-overload']} id="lolipop" viz={LolipopChart} config={config.lolipop}/>
                     </Box>
+
+                    <SiteText 
+                        type="subtitle"
+                        text="Stacked Bars Chart"
+                    />
+                    <Box my="20px"/>
                     <TextBox>
                         <SiteText 
                             type="standard"
@@ -101,6 +117,35 @@ export const Bars = ({size}) => {
                     <Box w="100%" h={["400px", "800px"]} py="30px">
                         <D3Container ref={stackedRef} data={data["stacked"]} id="stacked" viz={StackedBarsChart} config={config["stacked"]}/>
                     </Box>
+
+                    <TextBox>
+                        <SiteText 
+                            type="standard"
+                            text="Here we can see a great example of the use of stacked bars and color to show breakdown of different values over time and how the shift grew or shrunk"
+                        />
+                    </TextBox>
+
+                    <Center w="100%" py={["20px","20px","50px","50px"]}>
+                        <Image src={music_revenue} border="1px solid #ababab" w={["100%", "80%"]}/>
+                    </Center>
+
+                    <SiteText 
+                        type="subtitle"
+                        text="Diverging Stacked Bars Chart"
+                    />
+                    <Box my="20px"/>
+
+                    <TextBox>
+                        <SiteText 
+                            type="standard"
+                            text="Another common data format for stacked bars is a Diverging Stacked bar chart, where the values have an inherent positive and negative value in some way. Always put this 'zero' point in the middle of your viz to show distances from it."
+                        />
+                    </TextBox>
+
+                    <Center w="100%" py={["20px","20px","50px","50px"]}>
+                        <Image src={diverging_stacked} border="1px solid #ababab"  w={["100%", "90%"]}/>
+                    </Center>
+                    
                 </CardContainer>
             </Box>
         </Center>

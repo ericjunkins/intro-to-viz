@@ -9,11 +9,13 @@ import { BasicScatter } from "./Scatter/BasicScatter";
 import { Chord } from "./Chord/Chord";
 import { Treemap } from "./Treemap/Treemap";
 import { Hexbin } from "./HexbinMap/HexbinMap";
+import { BoxPlot } from "./Boxplot/Boxplot";
 import Navbar from "../components/Navbar";
 
 import cholera from "./../assets/cholera_outbreak.jpg";
 import napolean_march from "./../assets/Minard.png";
 import cattle_consumption from "./../assets/cattle_consumption.png"
+import favorite from "./../assets/my_favorite_viz.png"
 import { ColorSelection } from "./ColorSelection/ColorSelection";
 
 import {SiteText} from "./../components/SiteText";
@@ -131,16 +133,27 @@ export const Main = () => {
                 type="standard"
                 text="There are many different data visualizations, and picking the right one is important. There are bound to be multiple different methods of conveying your information, and you need to be able to pick one that displays the message you're intending, clearly and concisely. This site will explore some of the most commonly used data visualizations, their uses, and some of their pit-falls as well as what you should avoid doing. It also will go into some basic color usage, and how to select a meaningful color palette that will look nice together."
               />
+              <SiteText 
+                type="standard"
+                text="Also here I want to start off with my favorite visualization ever."
+                py="30px"
+              />
+
+              <Box py="40px">
+                <Image src={favorite} />
+              </Box>
+
             </Box>
             <Bars size={size}/>
             <Donut size={size}/>
+            <WordCloud size={size}/>
             <BasicScatter size={size}/>
             <Treemap size={size}/>
+            <BoxPlot size={size} />
             <Radar size={size}/>
             <Maps size={size}/>
             <Hexbin size={size}/>
             {/* <ConnectionMap size={size} /> */}
-            <WordCloud size={size}/>
             <Chord size={size}/>
             <Scatter size={size}/>
           </VStack>

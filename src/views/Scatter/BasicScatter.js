@@ -110,7 +110,7 @@ export const BasicScatter = ({size}) => {
                         </TextBox>
                         {!bubbleLoading ? 
                             <VStack>
-                                <Box h={["350px", "600px"]} w="100%" py="10px">
+                                <Box h={["350px", "600px"]} w="100%" py="10px" mt="20px">
                                     <D3Container ref={bubbleRadiusRef} data={bubbleData} id="bubbles-linear" viz={BasicBubblesChart} config={config.radius} />
                                 </Box>
                                 <Box h={["350px", "600px"]} w="100%" py="10px">
