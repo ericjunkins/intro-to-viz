@@ -225,13 +225,14 @@ export const Scatter = ({size}) => {
                                             Americas
                                         </Button>
                                         <Button 
+                                            borderColor="#252525"
                                             variant="outline" 
                                             px="30px" 
                                             onClick={()=> scalingClick()} 
                                             w={["200px", "200px", "200px", "200px"]}
                                             fontSize={["14px", "14px", "16px", "20px" ]}
                                         >
-                                            {scaling? "Display: Logramithic" : "Display: Linear"}
+                                            {scaling? "Display: Logarithmic" : "Display: Linear"}
                                         </Button>
                                     </SimpleGrid>
                                 </Center>
